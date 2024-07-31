@@ -135,12 +135,12 @@ public:
 
 	void SetPaused(bool paused) {
 		typedef void (*setBoardPaused)(Board*, bool);
-		((setBoardPaused)getActualOffset(0x73206C))(this, paused);
+		((setBoardPaused)getActualOffset(0x727A18))(this, paused); // Edited by jkn
 	}
 
 	void ChangeState(int newState) {
 		typedef void (*changeState)(Board*, int);
-		((changeState)getActualOffset(0x71B1AC))(this, newState);
+		((changeState)getActualOffset(0x7107F8))(this, newState); // Edited by jkn
 	}
 	
 	void ChangeLevelName(SexyString levelName) {
@@ -153,7 +153,7 @@ public:
 
 	void GetGridItemsAt(int gridX, int gridY, std::vector<GridItem*>* res) {
 		typedef void (*func)(Board*, int, int, std::vector<GridItem*>*);
-		func pFunc = (func) getActualOffset(0x720E7C);
+		func pFunc = (func) getActualOffset(0x7164C8); // Edited by jkn
 		return pFunc(this, gridX, gridY, res);
 	}
 };
