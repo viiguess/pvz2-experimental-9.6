@@ -1,8 +1,8 @@
 #pragma once
 #include "Color.h"
 
-#define UNK_GRAPHICSFUNC 0x1124614
-#define UNK_GRAPHICSFUNC2 0x1124784
+#define UNK_GRAPHICSFUNC 0x1137854 // Edited by jkn
+#define UNK_GRAPHICSFUNC2 0x11379C4 // Edited by jkn
 
 class Graphics
 {
