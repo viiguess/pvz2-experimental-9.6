@@ -73,13 +73,13 @@ public:
 	DEFINE_RT_CLASS_GET_CLASS_FUNCTION(RoofModuleProps, LEVELMODULEPROPS_GETCLASS_ADDR);
 
 	static void registerClass() {
-		typedef void* (*func12280C8)(); 
-		func12280C8 func_0x12280C8 = (func12280C8)GetActualOffset(0x12280C8); 
-		void* v0 = (void*)func_0x12280C8(); 
+		typedef void* (*func123B308)(); 
+		func123B308 func_0x123B308 = (func123B308)GetActualOffset(0x123B308);  // Edited by jkn
+		void* v0 = (void*)func_0x123B308(); 
 		if (v0) {
-			typedef void* (*func122811C)(void*); 
-			func122811C func_0x122811C = (func122811C)GetActualOffset(0x122811C); 
-			auto* builder = (Reflection::CRefManualSymbolBuilder*)func_0x122811C(v0);
+			typedef void* (*func123B35C)(void*); 
+			func123B35C func_0x123B35C = (func123B35C)GetActualOffset(0x123B35C);  // Edited by jkn
+			auto* builder = (Reflection::CRefManualSymbolBuilder*)func_0x123B35C(v0);
 			if (builder) {
 				(builder)->RegisterClassWithProperties("SlopedEffect", SlopedEffect::buildSymbols, sizeof(SlopedEffect), 0);
 				(builder)->RegisterClassWithProperties("KillTolerance", KillTolerance::buildSymbols, sizeof(KillTolerance), 0);

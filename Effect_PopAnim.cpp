@@ -6,7 +6,7 @@ void PlaySuccessiveAnims(Effect_PopAnim* popAnim, std::vector<SexyString> &anims
 	popAnim->animSequenceCurrentIndex = -1;
 	popAnim->animSequenceCurrentIndexStartTime = MAXFLOAT;
 	typedef void (*addAnimEntry)(std::vector<AnimationSequenceEntry>*, SexyString*, float);
-	addAnimEntry addAnimEntryFun = (addAnimEntry)getActualOffset(0xE45AF4);
+	addAnimEntry addAnimEntryFun = (addAnimEntry)getActualOffset(0xE54738); // Edited by jkn
 
 	for (SexyString& anim : anims) {
 		addAnimEntryFun(&popAnim->animSequence, &anim, 0.0);

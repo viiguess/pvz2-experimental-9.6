@@ -2704,7 +2704,7 @@ void libPVZ2ExampleMod_main()
 
     // jam effects fixes
     PVZ2HookFunction(0xD1CEC8, (void*)hkFun95, (void**)&oFun95, "fun95");
-    PVZ2HookFunction(0x7401A8, (void*)hkFun96, (void**)&oFun96, "fun96");
+    PVZ2HookFunction(0x735B60, (void*)hkFun96, (void**)&oFun96, "fun96"); // Edited by jkn
 
     initPlantsFix();
     initZombiesFix();
@@ -2732,12 +2732,12 @@ void libPVZ2ExampleMod_main()
     PVZ2HookFunction(0xE864FC, (void*)hkFun110, (void**)&oFun110, "fun110");
     PVZ2HookFunction(0xCE0148, (void*)hkUpdateSinkDist, NULL, "updatesink dist");
     PVZ2HookFunction(0x72B08C, (void*)hookBoardAddProjectileByType, (void**)&oBoardAddProjectileByType, "Board::AddProjectileByType");
-    PVZ2HookFunction(0x7401A8, (void*)hkRenderPopAnim, (void**)&oRenderPopAnim, "RenderPopAnim");
+    PVZ2HookFunction(0x735B60, (void*)hkRenderPopAnim, (void**)&oRenderPopAnim, "RenderPopAnim"); // Edited by jkn
     */
 
     // PVZ2HookFunction(0x6B6AC0, (void*)hkFun170, (void**)&oFun170, "fun170");
 
-    // PVZ2HookFunction(0xF3E09C, (void*)disableWithCond, (void**)&oFun171, "fun171");
+    // PVZ2HookFunction(0xF4DEE0, (void*)disableWithCond, (void**)&oFun171, "fun171"); // Edited by jkn
     PVZ2HookFunction(0xE89E48, (void*)applyEffectsForCond, (void**)&oFun172, "fun172");
     // PVZ2HookFunction(0xE8B0A0, (void*)removeEffectsForCond, (void**)&oFun178, "fun178");
     // PVZ2HookFunction(0x46C280, (void*)hkFun173, (void**)&oFun173, "fun173");

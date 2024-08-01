@@ -78,14 +78,14 @@ public:
 	}
 
 	static void registerClass() {
-		typedef void* (*func12280C8)();
-		func12280C8 func_0x12280C8 = (func12280C8)getActualOffset(0x12280C8);
-		void* v0 = (void*)func_0x12280C8();
+		typedef void* (*func123B308)();
+		func123B308 func_0x123B308 = (func123B308)getActualOffset(0x123B308); // Edited by jkn
+		void* v0 = (void*)func_0x123B308();
 		if (v0)
 		{
-			typedef void* (*func122811C)(void*); \
-				func122811C func_0x122811C = (func122811C)getActualOffset(0x122811C);
-			void* builder = func_0x122811C(v0);
+			typedef void* (*func123B35C)(void*); \
+				func123B35C func_0x123B35C = (func123B35C)getActualOffset(0x123B35C); // Edited by jkn
+			void* builder = func_0x123B35C(v0);
 			if (builder)
 			{
 				typedef void (*symBuilder)(int*, int);

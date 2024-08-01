@@ -1,7 +1,7 @@
 #pragma once
 #include "PopAnimRig.h"
 
-#define PLANTANIMRIG_DTOR_ADDR 0x276F0C
+#define PLANTANIMRIG_DTOR_ADDR 0x2681CC // Edited by jkn
 
 class PlantCustomLayers {
 	SexyString baseName;

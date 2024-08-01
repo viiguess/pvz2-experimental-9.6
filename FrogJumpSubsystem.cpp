@@ -145,7 +145,7 @@ void RunFrogSubsystem(FrogJumpSubsystem* subsystem) {
 			if (effect->animFinished) {
 				// LOGI("Death anim finished, restoring plants");
 				typedef void (*changeFlags)(Effect_FrogAnim*, int);
-				((changeFlags)getActualOffset(0x740DC8))(effect, 0);
+				((changeFlags)getActualOffset(0x736780))(effect, 0); // Edited by jkn
 
 				for (auto& plant2 : frog.plants) {
 					RtWeakPtr<Plant> plantPtr = RtWeakPtr<Plant>();

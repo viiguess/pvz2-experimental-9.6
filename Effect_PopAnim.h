@@ -23,7 +23,7 @@ public:
 
 	int SetPositionAndLayer(SexyVector3 *a2, int layer) {
 		typedef int (*setPositionAndLayer)(Effect_PopAnim*, SexyVector3*, int);
-		return ((setPositionAndLayer)getActualOffset(0x7401A8))(this, a2, layer);
+		return ((setPositionAndLayer)getActualOffset(0x735B60))(this, a2, layer); // Edited by jkn
 	}
 
 	int SetScale(float xScale, float yScale) {
@@ -33,7 +33,7 @@ public:
 
 	void SetFromResource(int resource, int a2) {
 		typedef void (*setFromResource)(Effect_PopAnim*, int, int);
-		((setFromResource)getActualOffset(0xE47544))(this, resource, a2);
+		((setFromResource)getActualOffset(0xE56260))(this, resource, a2); // Edited by jkn
 	}
 
 	bool IsPaused();
@@ -43,7 +43,7 @@ public:
 /*
 void GetPopAnimResource(RtWeakPtr<int>* a1, SexyString* resourceName) {
 	typedef void (*getResource)(RtWeakPtr<int>*, SexyString*);
-	((getResource)getActualOffset(0xC90A14))(a1, resourceName);
+	((getResource)getActualOffset(0xC9B7D4))(a1, resourceName); // Edited by jkn
 }
 */
 

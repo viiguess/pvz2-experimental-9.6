@@ -506,10 +506,10 @@ void initRoofHooks() {
 	
 	PVZ2HookFunction(0x72B08C, (void*)hkAddProjectileByType, (void**)&oAddProjectileByType, "add projectile by type");
 	// PVZ2HookFunction(0x1246A14, (void*)hkFun301, (void**)&oFun301, "fun 301");
-	PVZ2HookFunction(0xE47544, (void*)hkSetFromResource, (void**)&oSetFromResource, "set from resource");
-	PVZ2HookFunction(0x7401A8, (void*)hkSetPositionAndLayer, (void**)&oSetPositionAndLayer, "set position and layer");
+	PVZ2HookFunction(0xE56260, (void*)hkSetFromResource, (void**)&oSetFromResource, "set from resource"); // Edited by jkn
+	PVZ2HookFunction(0x735B60, (void*)hkSetPositionAndLayer, (void**)&oSetPositionAndLayer, "set position and layer"); // Edited by jkn
 	
-	// PVZ2HookFunction(0xC90A14, (void*)hkFun300, (void**)&oFun300, "fun 300");
+	// PVZ2HookFunction(0xC9B7D4, (void*)hkFun300, (void**)&oFun300, "fun 300"); // Edited by jkn
 	PVZ2HookFunction(0xE852BC, (void*)hkPlantRenderRigs, (void**)&oPlantRenderRigs, "plant render rigs");
 
 	PVZ2HookFunction(0x412EDC, (void*)hkGridItemAnimRender, (void**)&oGridItemAnimRender, "grid item anim render");

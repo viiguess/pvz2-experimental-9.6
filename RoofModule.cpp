@@ -11,7 +11,7 @@ DEFINE_STATIC_RT_CLASS_MEMBERS(RoofModule);
 bool RoofModule::IsEffectSloped(int offsets[2], RtWeakPtr<void>* pam) {
 	for (auto& sloped : GetProps()->SlopedEffects) {
 		typedef void (*getPopAnimRes)(RtWeakPtr<Sexy::PopAnim>*, SexyString*);
-		getPopAnimRes pGetPopAnimRes = (getPopAnimRes)getActualOffset(0xC90A14);
+		getPopAnimRes pGetPopAnimRes = (getPopAnimRes)getActualOffset(0xC90A14); // Edited by jkn
 
 		RtWeakPtr<Sexy::PopAnim> popAnimPtr;
 		pGetPopAnimRes(&popAnimPtr, &sloped.Name);
