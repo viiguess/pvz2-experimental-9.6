@@ -4,9 +4,9 @@
 #include "ReflectionBuilder.h"
 #include "memUtils.h"
 
-#define GAMEOBJECT_CONSTRUCTOR_OFFSET 0x54B4BC
-#define GAMEOBJECT_GETTYPE_OFFSET 0x54AF8C
-#define GAMEOBJECT_FUNCTION_DIE_OFFSET 0x54BA18
+#define GAMEOBJECT_CONSTRUCTOR_OFFSET 0x53EF3C // Edited by jkn
+#define GAMEOBJECT_GETTYPE_OFFSET 0x53EA0C // Edited by jkn
+#define GAMEOBJECT_FUNCTION_DIE_OFFSET 0x53F498 // Edited by jkn
 
 using namespace Sexy;
 
