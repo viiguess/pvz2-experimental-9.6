@@ -9,6 +9,6 @@ public:
 
     static TimeMgr* GetInstance()
     {
-        return *(TimeMgr**)getActualOffset(0x1CDC584);
+        return *(TimeMgr**)getActualOffset(0x1D7C3E4); // Edited by jkn
     }
 };
