@@ -43,7 +43,7 @@ public:
 			int vecSize = 0;
 
 			typedef bool(*func)(void*, RtWeakPtr<void>*, int&);
-			func pFunc = (func)GetActualOffset(0x262FCC);
+			func pFunc = (func)GetActualOffset(0x254210);  // Edited by jkn
 
 			if (pFunc(manipInfo->unkPtr, unkWeakPtr, vecSize))
 			{
@@ -69,8 +69,8 @@ public:
 		else
 		{
 			int** v19 = *(int***)((int) manipInfo + 4);
-			typedef void (*sub262EC0)(int**, RtWeakPtr<void>*, int, char);
-			((sub262EC0)getActualOffset(0x262EC0))(v19, unkWeakPtr, vector->size(), 0xFD);
+			typedef void (*sub254104)(int**, RtWeakPtr<void>*, int, char);
+			((sub254104)getActualOffset(0x254104))(v19, unkWeakPtr, vector->size(), 0xFD); // Edited by jkn
 
 			if (!vector->empty()) {
 				for (int i = 0; i < vector->size(); ++i) {
@@ -84,8 +84,8 @@ public:
 			v19[2] = (int*)((char*)v19[2] - 1);
 
 			uint8_t v21 = 254;
-			typedef int (*sub10D2100)(int*, uint8_t*, int);
-			((sub10D2100)getActualOffset(0x10D2100))(v17, &v21, 1);
+			typedef int (*sub10E5340)(int*, uint8_t*, int);
+			((sub10E5340)getActualOffset(0x10E5340))(v17, &v21, 1); // Edited by jkn
 			
 			return true;
 
