@@ -226,7 +226,7 @@ public:
 		return reinterpret_cast<T*>(pFunc(this));
 	}*/
 
-	DEFINE_RT_CLASS_GET_CLASS_WRAPPER(0xE7BE90);
+	DEFINE_RT_CLASS_GET_CLASS_WRAPPER(0xE8AC98); // Edited by jkn
 };
 
 static_assert(offsetof(Plant, m_type) == 0xE0);
