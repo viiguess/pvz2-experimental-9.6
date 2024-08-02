@@ -69,7 +69,7 @@ void mechanicAttackOnEnter(ZombieSteamMechanic* zombie) {
 void mechanicOnSpawn(ZombieSteamMechanic* zombie) {
 	LOGI("Mechanic spawns");
 	typedef void (*zombieFun49)(Zombie* zombie);
-	((zombieFun49)getActualOffset(0x8AEAF8))(zombie);
+	((zombieFun49)getActualOffset(0x8A4960))(zombie); // Edited by jkn
 
 	((zombieEnterState)getActualOffset(0x8AEC44))(zombie, 0x10, 0);
 }

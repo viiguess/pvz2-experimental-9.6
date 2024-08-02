@@ -62,7 +62,7 @@ int hkFun_91BC3C(int r0_0, int a2) {
         }
 
         typedef void (*weakPtrDtor)(RtWeakPtr<int>*);
-        weakPtrDtor funWeakPtrDtor = (weakPtrDtor)getActualOffset(0x10B58F8);
+        weakPtrDtor funWeakPtrDtor = (weakPtrDtor)getActualOffset(0x10C8B38); // Edited by jkn
         funWeakPtrDtor(&a1);
         *(int*)(r0_0 + 0x3C) = v4;
     }

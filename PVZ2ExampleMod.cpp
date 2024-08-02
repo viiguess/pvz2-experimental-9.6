@@ -1060,7 +1060,7 @@ int hkPlantCursorCanPlantOnCursor(int* a1) { // plant cursor fix
             ((fromOther)(getActualOffset(0x10B59B8)))(&v9, (RtWeakPtr<int>*)(a1 + 0xC));
             canPlantTypeGoHere = newCanPlantTypeGoHere(boardPlanting, v10, (int)&v9, a1[0xF]);
             typedef void (*dtor)(RtWeakPtr<int>*);
-            ((dtor)(getActualOffset(0x10B58F8)))(&v9);
+            ((dtor)(getActualOffset(0x10C8B38)))(&v9); // Edited by jkn
         }
     }
 
@@ -1116,7 +1116,7 @@ int hookHasPerkHandlerModuleProperties(int r0_0) {
             }
 
             typedef void (*dtor)(RtWeakPtr<int>*);
-            ((dtor)(getActualOffset(0x10B58F8)))(&a1);
+            ((dtor)(getActualOffset(0x10C8B38)))(&a1); // Edited by jkn
 
             if (v9) {
                 typedef int (*temp)(int, int);
@@ -1128,7 +1128,7 @@ int hookHasPerkHandlerModuleProperties(int r0_0) {
 
                 v8 = v12(v9, v13); // probably checking if v9 is the proper
             }
-            ((dtor)(getActualOffset(0x10B58F8)))(&v14);
+            ((dtor)(getActualOffset(0x10C8B38)))(&v14); // Edited by jkn
 
             if (v8) {
                 break;
@@ -1521,7 +1521,7 @@ void hkFun_649EC0(int* a1, int a2, int a3) {
             CanPlantTypeGoHere = newCanPlantTypeGoHere(a2, (int*)&v13, (int)&v12, 0xFFFFFFFF);
 
             typedef void (*dtor)(RtWeakPtr<int>*);
-            ((dtor)(getActualOffset(0x10B58F8)))(&v12);
+            ((dtor)(getActualOffset(0x10C8B38)))(&v12); // Edited by jkn
 
             if (CanPlantTypeGoHere)
             {
@@ -1588,7 +1588,7 @@ void hkFun_649EC0(int* a1, int a2, int a3) {
 //        }
 //
 //        typedef void (*dtor)(RtWeakPtr<int>*);
-//        ((dtor)(getActualOffset(0x10B58F8)))(&v15);
+//        ((dtor)(getActualOffset(0x10C8B38)))(&v15); // Edited by jkn
 //
 //        if (v5) {
 //            typedef int (*isType)(int, int);

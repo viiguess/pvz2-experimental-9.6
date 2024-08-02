@@ -72,7 +72,7 @@ void* GetStateMachine(void* rClass) {
 }
 
 void RegisterEventAfterAnim(Zombie* zombie, const SexyString& animName, const SexyString& eventName) {
-	uint animRig = ((getAnimRig)getActualOffset(0x74142C))(zombie);
+	uint animRig = ((getAnimRig)getActualOffset(0x736DE4))(zombie); // Edited by jkn
 	RtWeakPtr<int> zombiePtr = RtWeakPtr<int>();
 	zombiePtr.FromOther((RtWeakPtr<int>*)((uint)zombie + 8));
 
@@ -84,7 +84,7 @@ void RegisterEventAfterAnim(Zombie* zombie, const SexyString& animName, const Se
 }
 
 void RegisterEventOnWalkLoop(Zombie* zombie, const SexyString& eventName) {
-	uint animRig = ((getAnimRig)getActualOffset(0x74142C))(zombie);
+	uint animRig = ((getAnimRig)getActualOffset(0x736DE4))(zombie);  // Edited by jkn
 	RtWeakPtr<int> zombiePtr = RtWeakPtr<int>();
 	zombiePtr.FromOther((RtWeakPtr<int>*)((uint)zombie + 8));
 
@@ -97,7 +97,7 @@ void RegisterEventOnWalkLoop(Zombie* zombie, const SexyString& eventName) {
 }
 
 void RegisterEventOnIdleLoop(Zombie* zombie, const SexyString& animName, const SexyString& eventName) {
-	uint animRig = ((getAnimRig)getActualOffset(0x74142C))(zombie);
+	uint animRig = ((getAnimRig)getActualOffset(0x736DE4))(zombie); // Edited by jkn
 	RtWeakPtr<int> zombiePtr = RtWeakPtr<int>();
 	zombiePtr.FromOther((RtWeakPtr<int>*)((uint)zombie + 8));
 
@@ -110,7 +110,7 @@ void RegisterEventOnIdleLoop(Zombie* zombie, const SexyString& animName, const S
 }
 
 void RegisterEventOnLoop(Zombie* zombie, const SexyString& animName, const SexyString& eventName) {
-	ZombieAnimRig* animRig = (ZombieAnimRig*)((getAnimRig)getActualOffset(0x74142C))(zombie);
+	ZombieAnimRig* animRig = (ZombieAnimRig*)((getAnimRig)getActualOffset(0x736DE4))(zombie); // Edited by jkn
 	RtWeakPtr<int> zombiePtr;
 	zombiePtr.FromOther((RtWeakPtr<int>*) & zombie->m_thisPtr);
 
@@ -141,7 +141,7 @@ void SetupLiteralDelegate(Sexy::DelegateBase* delegate, uint delegateAddr) {
 }
 
 void SetDesiredSpeed(Zombie* zombie, float speed) {
-	uint animRig = ((getAnimRig)getActualOffset(0x74142C))(zombie);
+	uint animRig = ((getAnimRig)getActualOffset(0x736DE4))(zombie); // Edited by jkn
 
 	typedef void (*sub5774F0)(uint, float);
 	((sub5774F0)getActualOffset(0x5774F0))(animRig, speed);

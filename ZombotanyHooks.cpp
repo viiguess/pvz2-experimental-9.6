@@ -1,3 +1,4 @@
+// THIS PORTED FULLY
 #include "pch.h"
 #include "ZombotanyHooks.h"
 #include "Logging.h"
@@ -25,7 +26,7 @@ void hkZombieBullSpawn(int a1) {
     *(uint8_t*)(a1 + 0x308) = 0;
 
     typedef void (*ZombieFun49)(int); // zombie spawn callback
-    ((ZombieFun49)getActualOffset(0x8AEAF8))(a1);
+    ((ZombieFun49)getActualOffset(0x8A4960))(a1);
 
     // Zombie::EnterState(a1, 16, 0); // skip setting the bull charging stage
 
@@ -46,14 +47,14 @@ void hkZombieBullThrowRider(int a1) {
 
     // LOGI("Zombotany throw rider hasAction = %d", *(uint8_t*)(a1 + 0x308));
     typedef bool (*zombieHasCondition)(int, int);
-    zombieHasCondition checkZombieHasCondition = (zombieHasCondition)getActualOffset(0x8AF9E4);
+    zombieHasCondition checkZombieHasCondition = (zombieHasCondition)getActualOffset(0x8A584C);
 
     if (!*(uint8_t*)(a1 + 0x308)
         && !checkZombieHasCondition(a1, zombie_condition_shrinking)
         && !checkZombieHasCondition(a1, zombie_condition_shrunken)) {
         // LOGI("Can fire projectile");
         // typedef int (*zombieGetAnimRig)(int);
-        // int animRig = ((zombieGetAnimRig)getActualOffset(0x74142C))(a1);
+        // int animRig = ((zombieGetAnimRig)getActualOffset(0x736DE4))(a1);
 
         // typedef void (*zombieBullAnimRigHideRiderImp)(int);
         // ((zombieBullAnimRigHideRiderImp)getActualOffset(0x760F8C))(animRig);
@@ -61,7 +62,7 @@ void hkZombieBullThrowRider(int a1) {
         int board = (int)getBoard();
 
         typedef int (*getZombieTypeDirectoryInstance)();
-        int typeDir = ((getZombieTypeDirectoryInstance)getActualOffset(0x28FE30))();
+        int typeDir = ((getZombieTypeDirectoryInstance)getActualOffset(0x28100C))(); // original function has been rewrote and idk will it work or no
 
         typedef void (*getZombieType)(RtWeakPtr<int>*, int, std::string*);
         RtWeakPtr<int> zType;
@@ -75,14 +76,14 @@ void hkZombieBullThrowRider(int a1) {
         const char* zombieTypeStr = name.c_str();
         // LOGI("Zombotany throws a %s", zombieTypeStr);
 
-        ((getZombieType)getActualOffset(0x28FE9C))(&zType, typeDir, &name);
+        ((getZombieType)getActualOffset(0x28107C))(&zType, typeDir, &name);
 
         typedef int (*addZombieByType)(int, int, int, char, int);
-        addZombieByType funAddZombieByType = (addZombieByType)getActualOffset(0x72B4D8);
+        addZombieByType funAddZombieByType = (addZombieByType)getActualOffset(0x720E84);
         int spawnedZombie = funAddZombieByType(board, (int)&zType, -1, 6, -1);
 
         typedef void (*dtor)(RtWeakPtr<int>*);
-        ((dtor)(getActualOffset(0x10B58F8)))(&zType);
+        ((dtor)(getActualOffset(0x10C8B38)))(&zType);
 
         *(char*)(spawnedZombie + 0x30D) = true;
 
@@ -93,7 +94,7 @@ void hkZombieBullThrowRider(int a1) {
         float newZ = *(float*)(a1 + 0x1C) + 50;
 
         typedef int (*boardEntitySetPosition)(int, SexyVector3*);
-        boardEntitySetPosition funBoardEntitySetPosition = (boardEntitySetPosition)getActualOffset(0x2D850C);
+        boardEntitySetPosition funBoardEntitySetPosition = (boardEntitySetPosition)getActualOffset(0x2C9BAC);
         SexyVector3 newCoords = SexyVector3(newX, newY, newZ);
         funBoardEntitySetPosition(spawnedZombie, &newCoords);
 
@@ -118,12 +119,12 @@ void hkZombieBullPlayDeath(int a1) {
     }
 
     typedef void(*zombieFun197)(int);
-    ((zombieFun197)getActualOffset(0x8C2110))(a1); // does not play the bull's death sound effect
+    ((zombieFun197)getActualOffset(0x8B8330))(a1); // does not play the bull's death sound effect
 }
 
 void zombotanyAnimRigHeadHide(int animRig) {
     typedef int (*funSetLayerVisible)(int, SexyString*, bool);
-    funSetLayerVisible setLayerVisible = (funSetLayerVisible)getActualOffset(0x667590);
+    funSetLayerVisible setLayerVisible = (funSetLayerVisible)getActualOffset(0x65B37C);
 
     SexyString layerName = "zombie_skull";
     setLayerVisible(animRig, &layerName, false);
@@ -137,7 +138,7 @@ void hkZombieDie(int a1) {
 
     if (getZombotanyBaseProps(a1)) {
          typedef int (*zombieGetAnimRig)(int);
-         int animRig = ((zombieGetAnimRig)getActualOffset(0x74142C))(a1);
+         int animRig = ((zombieGetAnimRig)getActualOffset(0x736DE4))(a1);
 
          //typedef void (*zombieBullAnimRigHideRiderImp)(int);
          //((zombieBullAnimRigHideRiderImp)getActualOffset(0x760F8C))(animRig); // can be used by coders to hide the head
@@ -155,7 +156,7 @@ void zombotanyAnimRigArmHide(int animRig, int damageState) { // replaces bull's 
         return;
     }
     typedef int (*funSetLayerVisible)(int, SexyString*, bool);
-    funSetLayerVisible setLayerVisible = (funSetLayerVisible)getActualOffset(0x667590);
+    funSetLayerVisible setLayerVisible = (funSetLayerVisible)getActualOffset(0x65B37C);
 
     SexyString layerName = "damage2_bull_head_01"; // arm with bone layer
     setLayerVisible(animRig, &layerName, true);
@@ -206,7 +207,7 @@ void hkZombieBullUpdateAnimRigDamagedState(int r0_0) {
         *(int*)(r0_0 + 0x30C) = newDamageState;
         
         typedef int (*zombieGetAnimRig)(int);
-        int animRig = ((zombieGetAnimRig)getActualOffset(0x74142C))(r0_0);
+        int animRig = ((zombieGetAnimRig)getActualOffset(0x736DE4))(r0_0);
 
         /* // original zombie bull code to set anim rig states
         typedef void (*sub_75ED64)(int, int);
@@ -217,16 +218,16 @@ void hkZombieBullUpdateAnimRigDamagedState(int r0_0) {
     }
 
     typedef void (*zombieFun29)(int);
-    ((zombieFun29)getActualOffset(0x8AEE80))(r0_0);
+    ((zombieFun29)getActualOffset(0x8A4CE8))(r0_0);
 }
 
-typedef void (*fun760F24)(int, int);
-fun760F24 oFun760F24 = NULL;
+typedef void (*fun756A30)(int, int);
+fun756A30 oFun756A30 = NULL;
 
-void hkFun760F24(int zombie, int zombieCondition) {
+void hkFun756A30(int zombie, int zombieCondition) {
     // this function sets the bull to rearing on hypno. We don't want that for zombotanies since they don't have the animation
     if (!getZombotanyBaseProps(zombie)) {
-        oFun760F24(zombie, zombieCondition);
+        oFun756A30(zombie, zombieCondition);
         return;
     }
 
@@ -234,8 +235,8 @@ void hkFun760F24(int zombie, int zombieCondition) {
         if (zombieCondition != zombie_condition_hypnotized) {
             return;
         }
-        typedef void (*sub8B25E8)(int, int);
-        ((sub8B25E8)getActualOffset(0x8B25E8))(zombie, 0);
+        typedef void (*sub8A8450)(int, int);
+        ((sub8A8450)getActualOffset(0x8A8450))(zombie, 0);
     }
 }
 
@@ -249,12 +250,12 @@ void* hkBullAnimRigConstruct() {
     
     //LOGI("Constructs bulls anim rig");
     if (!bullAnimRigVftable) {
-        bullAnimRigVftable = copyVFTable(getActualOffset(0x1BE2814), 67);
+        bullAnimRigVftable = copyVFTable(getActualOffset(0x1C86994), 67);
 
         // DC contains getHeadLayerToDrop, E0 contains getArmLayerToDrop
         // redirects these to future basic's corresponding animations
-        patchVFTable(bullAnimRigVftable, (void*)getActualOffset(0x2E9FF4), 55);
-        patchVFTable(bullAnimRigVftable, (void*)getActualOffset(0x2EA258), 56);
+        patchVFTable(bullAnimRigVftable, (void*)getActualOffset(0x2DBB40), 55);
+        patchVFTable(bullAnimRigVftable, (void*)getActualOffset(0x2DBDA4), 56);
 
         //LOGI("Patched the VFTable");
     }
@@ -265,19 +266,19 @@ void* hkBullAnimRigConstruct() {
 }
 
 void initZombotanyHooks() {
-    PVZ2HookFunction(0x760B70, (void*)hkZombieBullThrowRider, (void**)&oZombieBullThrowRider, "ZombieBull::ThrowRider");
+    PVZ2HookFunction(0x75667C, (void*)hkZombieBullThrowRider, (void**)&oZombieBullThrowRider, "ZombieBull::ThrowRider"); // original function has been rewrote and idk will it work or no
     // PVZ2HookFunction(0x75FB68, (void*)hkZombieBullEnterChargingState, (void**)&oZombieBullEnterChargingState, "ZombieBull::EnterChargingState");
     // PVZ2HookFunction(0x76035C, (void*)hkFun_76035C, (void**)&oFun_76035C, "fun_76035C"); // used to test collision. Only handles collision while charging
-    PVZ2HookFunction(0x75F778, (void*)hkZombieBullPlayDeath, (void**)&oZombieBullPlayDeath, "ZombieBull::PlayDeath"); // remove zombie bull's death sound
-    PVZ2HookFunction(0x75EB64, (void*)hkZombieBullSpawn, (void**)&oZombieBullSpawn, "760354");
-    PVZ2HookFunction(0x8B83A8, (void*)hkZombieDie, (void**)&oZombieDie, "Zombie:::Die");
-    PVZ2HookFunction(0x75EC04, (void*)hkZombieBullUpdateAnimRigDamagedState, (void**)&oZombieBullUpdateAnimRigDamagedState, "ZombieBull::UpdateAnimRigDamageState");
+    PVZ2HookFunction(0x755144, (void*)hkZombieBullPlayDeath, (void**)&oZombieBullPlayDeath, "ZombieBull::PlayDeath"); // remove zombie bull's death sound
+    PVZ2HookFunction(0x754530, (void*)hkZombieBullSpawn, (void**)&oZombieBullSpawn, "760354");
+    PVZ2HookFunction(0x8AE2E0, (void*)hkZombieDie, (void**)&oZombieDie, "Zombie:::Die");
+    PVZ2HookFunction(0x7545D0, (void*)hkZombieBullUpdateAnimRigDamagedState, (void**)&oZombieBullUpdateAnimRigDamagedState, "ZombieBull::UpdateAnimRigDamageState");
 
     // Disables rearing on hypno
-    PVZ2HookFunction(0x760F24, (void*)hkFun760F24, (void**)&oFun760F24, "fun760F24");
+    PVZ2HookFunction(0x756A30, (void*)hkFun756A30, (void**)&oFun756A30, "fun756A30");
 
     // hook bull's anim rig to my custom vftable 
-    PVZ2HookFunction(0x761B68, (void*)hkBullAnimRigConstruct, (void**)&oBullAnimRigConstruct, "ZombieAnimRig_Bull::Construct");
+    PVZ2HookFunction(0x757674, (void*)hkBullAnimRigConstruct, (void**)&oBullAnimRigConstruct, "ZombieAnimRig_Bull::Construct");
 
     ZombotanyBaseProps::modInit();
 }

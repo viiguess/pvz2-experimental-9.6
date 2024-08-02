@@ -51,7 +51,7 @@ ZombotanyBaseProps* getZombotanyBaseProps(int bullZombie) {
 	}
 
 	typedef void (*dtor)(RtWeakPtr<int>*);
-	((dtor)(getActualOffset(0x10B58F8)))(&a1);
+	((dtor)(getActualOffset(0x10C8B38)))(&a1); // Edited by jkn
 
 	if (v5) {
 		typedef int (*temp)(int, int);
@@ -65,6 +65,6 @@ ZombotanyBaseProps* getZombotanyBaseProps(int bullZombie) {
 			v5 = 0;
 		}
 	}
-	((dtor)(getActualOffset(0x10B58F8)))(&v11);
+	((dtor)(getActualOffset(0x10C8B38)))(&v11); // Edited by jkn
 	return (ZombotanyBaseProps*)v5;
 }

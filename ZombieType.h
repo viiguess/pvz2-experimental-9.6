@@ -3,8 +3,8 @@
 #include <vector>
 #include "PvZ2/RtWeakPtr.h"
 
-#define ZOMBIETYPEDIRECTORY_GET 0x28FE30
-#define ZOMBIETYPEDIRECTORY_GETTYPE 0x28FE9C
+#define ZOMBIETYPEDIRECTORY_GET 0x28100C // Edited by jkn, original function has been rewrote and idk will it work or no
+#define ZOMBIETYPEDIRECTORY_GETTYPE 0x28107C // Edited by jkn
 
 enum ZombieFlagType {
 	noflag = 0,

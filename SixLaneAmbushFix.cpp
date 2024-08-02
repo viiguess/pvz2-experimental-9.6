@@ -13,7 +13,7 @@ spawnAmbushBeach oSpawnAmbushBeach = NULL;
 void hkSpawnAmbushBeach(int beachEventSpawner, int amount, int a3, int a4) {
     int propSheet = getWeakPtr(beachEventSpawner + 0x10);
     typedef int (*getZombieTypeDirectoryInstance)();
-    int typeDir = ((getZombieTypeDirectoryInstance)getActualOffset(0x28FE30))();
+    int typeDir = ((getZombieTypeDirectoryInstance)getActualOffset(0x28100C))(); // Edited by jkn, original function has been rewrote and idk will it work or no
 
     SexyString a1;
     typedef int* (*subEBFC8C)(SexyString*, int);
@@ -21,7 +21,7 @@ void hkSpawnAmbushBeach(int beachEventSpawner, int amount, int a3, int a4) {
 
     typedef void (*getZombieType)(RtWeakPtr<int>*, int, std::string*);
     RtWeakPtr<int> zType;
-    ((getZombieType)getActualOffset(0x28FE9C))(&zType, typeDir, &a1);
+    ((getZombieType)getActualOffset(0x28107C))(&zType, typeDir, &a1);// Edited by jkn
 
     int totalSpawns = *(int*)(propSheet + 0x38);
     int amountSpawned = *(int*)(beachEventSpawner + 0x2C);
@@ -45,7 +45,7 @@ void hkSpawnAmbushBeach(int beachEventSpawner, int amount, int a3, int a4) {
         int animRig = getWeakPtr(zombie + 0x80);
         typedef int(*setLayerVisible)(int, SexyString*, bool);
         SexyString seaweed = "zombie_seaweed1";
-        ((setLayerVisible)getActualOffset(0x667590))(animRig, &seaweed, true);
+        ((setLayerVisible)getActualOffset(0x65B37C))(animRig, &seaweed, true); // Edited by jkn
         //LOGI("got past set layer visible");
 
         int colStart = *(int*)(propSheet + 0x44);
@@ -75,7 +75,7 @@ void hkZombieRainSpawnerSpawnAmbush(int zombieRainSpawner, int amount, int a3, i
     int propSheet = getWeakPtr(zombieRainSpawner + 0x10);
 
     typedef int (*getZombieTypeDirectoryInstance)();
-    int typeDir = ((getZombieTypeDirectoryInstance)getActualOffset(0x28FE30))();
+    int typeDir = ((getZombieTypeDirectoryInstance)getActualOffset(0x28100C))(); // Edited by jkn, original function has been rewrote and idk will it work or no
 
     SexyString a1;
     typedef int* (*sub291E5C)(SexyString*, int);
@@ -83,7 +83,7 @@ void hkZombieRainSpawnerSpawnAmbush(int zombieRainSpawner, int amount, int a3, i
 
     typedef void (*getZombieType)(RtWeakPtr<int>*, int, std::string*);
     RtWeakPtr<int> zType;
-    ((getZombieType)getActualOffset(0x28FE9C))(&zType, typeDir, &a1);
+    ((getZombieType)getActualOffset(0x28107C))(&zType, typeDir, &a1);// Edited by jkn
 
     int totalSpawns = *(int*)(propSheet + 0x38);
     int amountSpawned = *(int*)(zombieRainSpawner + 0x2C);
@@ -115,7 +115,7 @@ void hkZombieRainSpawnerSpawnAmbush(int zombieRainSpawner, int amount, int a3, i
         // LOGI("location decided");
 
         typedef void (*setPosition)(int, SexyVector3*);
-        ((setPosition)getActualOffset(0x2D850C))(zombie, &loc);
+        ((setPosition)getActualOffset(0x2C9BAC))(zombie, &loc); // Edited by jkn
         // LOGI("set position");
 
         typedef void (*someFunc)(int, int, float, float, int, int, int);
@@ -130,7 +130,7 @@ void hkZombieRainSpawnerSpawnAmbush(int zombieRainSpawner, int amount, int a3, i
 }
 
 void initSixLaneAmbushFix() {
-    addZombieByType = (addZombieByTypeType)getActualOffset(0x72B4D8);
+    addZombieByType = (addZombieByTypeType)getActualOffset(0x720E84); // Edited by jkn
 
 	PVZ2HookFunction(0xEBF84C, (void*)hkSpawnAmbushBeach, (void**)&oSpawnAmbushBeach, "SpawnAmbushBeach");
 	PVZ2HookFunction(0x29184C, (void*)hkZombieRainSpawnerSpawnAmbush, (void**)&oZombieRainSpawnerSpawnAmbush, "ZombieRainSpawner::SpawnAmbush");

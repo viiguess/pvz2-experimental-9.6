@@ -114,7 +114,7 @@ void hkSetWaveZombiesPositions(int r0_0, std::vector<int>* zombiesVec, int r2_0)
                 // some code to add further offsets based on the pattern's rowBetweenOffset
             }
             typedef int (*boardEntitySetPos)(int, SexyVector3*);
-            boardEntitySetPos setPosFunc = (boardEntitySetPos)getActualOffset(0x2D850C);
+            boardEntitySetPos setPosFunc = (boardEntitySetPos)getActualOffset(0x2C9BAC); // Edited by jkn
             SexyVector3 newPos = SexyVector3(mX, mY, mZ);
             setPosFunc(zombie, &newPos);
         }

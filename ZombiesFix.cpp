@@ -59,7 +59,7 @@ int getRandomRowInPotentialRows(std::vector<int>& potentialRows) {
 
 void hkZombieKingOnSpawn(int a1) {
 	typedef void (*zombieFun49)(int);
-	((zombieFun49)getActualOffset(0x8AEAF8))(a1);
+	((zombieFun49)getActualOffset(0x8A4960))(a1); // Edited by jkn
 	zombieEnterState(a1, 0x10, 0);
 
 	typedef int (*getZombieKingClass)();
@@ -219,11 +219,11 @@ void hkImpKillOnBounds(int a1) {
 			}
 			else {
 				typedef bool (*zombieHasCondition)(int, int);
-				zombieHasCondition checkZombieHasCondition = (zombieHasCondition)getActualOffset(0x8AF9E4);
+				zombieHasCondition checkZombieHasCondition = (zombieHasCondition)getActualOffset(0x8A584C); // Edited by jkn
 
 				if (checkZombieHasCondition(a1, 0x17)) { // hypnotized cond
-					typedef void (*sub8B25E8)(int, int);
-					((sub8B25E8)getActualOffset(0x8B25E8))(a1, 1);
+					typedef void (*sub8A8450)(int, int);
+					((sub8A8450)getActualOffset(0x8A8450))(a1, 1);  // Edited by jkn
 				}
 				state = 1;
 			}
