@@ -41,7 +41,7 @@ public:
 	std::vector<RtWeakPtr<AnimationController>> m_animControllers;
 	std::vector<RtWeakPtr<AnimationController>> m_animControllersToAdd;
 
-	DEFINE_RT_CLASS_GET_CLASS_WRAPPER(0x10320D8);
+	DEFINE_RT_CLASS_GET_CLASS_WRAPPER(0x1045068); // Edited by jkn
 
 	void AddAnimController(AnimationController* animController, float startTime, float& endTime) {
 		typedef void (*addAnimController)(AnimationMgr*, AnimationController*, float, float*);
