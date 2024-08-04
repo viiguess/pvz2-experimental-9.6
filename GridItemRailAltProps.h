@@ -46,7 +46,7 @@ public:
 			LOGI("No global RTClass exists");
 			void* v1;
 			typedef void* (*initRtClass)();
-			v1 = ((initRtClass)getActualOffset(0x123CF6C))();
+			v1 = ((initRtClass)getActualOffset(0x12501AC))(); // Edited by jkn
 			s_rtClass = v1;
 			LOGI("Obtained RTClass");
 

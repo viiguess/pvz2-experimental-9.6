@@ -82,5 +82,5 @@ class ZombieAnimRig_ZombossMech_Future : public ZombieAnimRig_ZombossMech {
 public:
 	int m_queuedTileClass;
 
-	DEFINE_RT_CLASS_GET_CLASS_WRAPPER(0x3C88EC)
+	DEFINE_RT_CLASS_GET_CLASS_WRAPPER(0x3BB28C) // Edited by jkn
 };

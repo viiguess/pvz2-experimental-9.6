@@ -1,3 +1,4 @@
+// THIS PORTED FULLY
 #pragma once
 #include "ZombieBullProps.h"
 #include "Logging.h"
@@ -7,7 +8,7 @@ typedef void* (*ParameterlessConstructorFunc)();
 typedef int (*zombiePropertySheetCtor)(int);
 
 static void constructZombiePropertySheet(int v0) {
-	((zombiePropertySheetCtor)getActualOffset(0x88542C))(v0);
+	((zombiePropertySheetCtor)getActualOffset(0x87B2A4))(v0);
 }
 
 static void constructZombieBullProperties(int* v0) {
@@ -56,7 +57,7 @@ public:
 			LOGI("No global RTClass exists");
 			void* v1;
 			typedef void* (*initRtClass)();
-			v1 = ((initRtClass)getActualOffset(0x123CF6C))();
+			v1 = ((initRtClass)getActualOffset(0x12501AC))();
 			s_rtClass = v1;
 			LOGI("Obtained RTClass");
 
@@ -65,7 +66,7 @@ public:
 			// v2 refers to sub_123D950
 			
 			typedef int (*ZombieBullPropsGetClass)();
-			int parentClass = ((ZombieBullPropsGetClass)getActualOffset(0xA10460))();
+			int parentClass = ((ZombieBullPropsGetClass)getActualOffset(0xA0A77C))();
 			v2(v1, "ZombotanyBaseProps", parentClass, ZombotanyBaseProps::construct);
 
 			LOGI("Registering class");

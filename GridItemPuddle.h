@@ -38,7 +38,7 @@ public:
 		if (!s_rtClass) {
 			void* v1;
 			typedef void* (*initRtClass)();
-			v1 = ((initRtClass)getActualOffset(0x123CF6C))();
+			v1 = ((initRtClass)getActualOffset(0x12501AC))();  // Edited by jkn
 			s_rtClass = v1;
 			
 			typedef int (*rtClassRegisterClass)(void*, const char*, int, ParameterlessConstructorFunc);

@@ -1,3 +1,4 @@
+// THIS PORTED FULLY
 #include "pch.h"
 #include "ZombotanyBaseProps.h"
 #include "PvZ2/RtWeakPtr.h"
@@ -16,7 +17,7 @@ void* ZombotanyBaseProps::s_rtClass = NULL;
 void ZombotanyBaseProps::modInit() {
 	LOGI("ZombotanyBaseProps init");
 
-	vftable = copyVFTable(getActualOffset(0x1C144C8), 14);
+	vftable = copyVFTable(getActualOffset(0x1CB8D14), 14);
 
 	patchVFTable(vftable, (void*)ZombotanyBaseProps::getRTClass, RTOBJECT_GETTYPE_INDEX);
 
@@ -31,22 +32,22 @@ ZombotanyBaseProps* getZombotanyBaseProps(int bullZombie) {
 	RtWeakPtr<int> v11 = RtWeakPtr<int>();
 
 	typedef void (*fromOther)(RtWeakPtr<int>*, RtWeakPtr<int>*);
-	((fromOther)(getActualOffset(0x10B59B8)))(&v11, (RtWeakPtr<int>*)(bullZombie + 0x300));
+	((fromOther)(getActualOffset(0x10C8BF8)))(&v11, (RtWeakPtr<int>*)(bullZombie + 0x300));
 
 	typedef int (*RtWeakPtrRegistry)();
-	int v3 = ((RtWeakPtrRegistry)(getActualOffset(0x10C6764)))();
-	typedef void (*sub_10CC81C)(RtWeakPtr<int>*, int, RtWeakPtr<int>*);
+	int v3 = ((RtWeakPtrRegistry)(getActualOffset(0x10D99A4)))();
+	typedef void (*sub_10DFA5C)(RtWeakPtr<int>*, int, RtWeakPtr<int>*);
 	RtWeakPtr<int> a1;
-	typedef void (*sub_10CC81C)(RtWeakPtr<int>*, int, RtWeakPtr<int>*);
-	((sub_10CC81C)(getActualOffset(0x10CC81C)))(&a1, v3, &v11);
+	typedef void (*sub_10DFA5C)(RtWeakPtr<int>*, int, RtWeakPtr<int>*);
+	((sub_10DFA5C)(getActualOffset(0x10DFA5C)))(&a1, v3, &v11);
 
 	if (!a1.is_invalid()) {
 		int typeId = a1.type_id();
-		typedef int (*sub_10CC404)(int, int);
-		int* v7 = (int*)((sub_10CC404)(getActualOffset(0x10CC404)))(v3, typeId);
+		typedef int (*sub_10DF644)(int, int);
+		int* v7 = (int*)((sub_10DF644)(getActualOffset(0x10DF644)))(v3, typeId);
 		if (v7) {
 			typedef int (*resolveWeakPtr)(int*, RtWeakPtr<int>*);
-			v5 = ((resolveWeakPtr)(getActualOffset(0x10C8780)))(v7, &a1);
+			v5 = ((resolveWeakPtr)(getActualOffset(0x10DB9C0)))(v7, &a1);
 		}
 	}
 

@@ -40,23 +40,23 @@ int hkFun_91BC3C(int r0_0, int a2) {
     v4 = *(int*)(r0_0 + 0x3C);
     if (!v4) {
         typedef int (*getRtWeakPtrRegistry)();
-        getRtWeakPtrRegistry funGetRtWeakPtrRegistry = (getRtWeakPtrRegistry)getActualOffset(0x10C6764);
+        getRtWeakPtrRegistry funGetRtWeakPtrRegistry = (getRtWeakPtrRegistry)getActualOffset(0x10D99A4);  // Edited by jkn
         v5 = funGetRtWeakPtrRegistry();
 
-        typedef void (*sub_10CC81C)(RtWeakPtr<int>*, int, RtWeakPtr<int>*);
-        ((sub_10CC81C)getActualOffset(0x10CC81C))(&a1, (int)v5, (RtWeakPtr<int>*)(r0_0 + 0x40));
+        typedef void (*sub_10DFA5C)(RtWeakPtr<int>*, int, RtWeakPtr<int>*);
+        ((sub_10DFA5C)getActualOffset(0x10DFA5C))(&a1, (int)v5, (RtWeakPtr<int>*)(r0_0 + 0x40));  // Edited by jkn
         v6 = 0;
         v4 = 0;
         if (!a1.is_invalid())
         {
             TypeId = a1.type_id();
 
-            typedef int (*sub_10CC404)(int, int);
-            v8 = (int*)((sub_10CC404)getActualOffset(0x10CC404))(v5, TypeId);
+            typedef int (*sub_10DF644)(int, int);
+            v8 = (int*)((sub_10DF644)getActualOffset(0x10DF644))(v5, TypeId); // Edited by jkn
             v4 = 0;
             if (v8) {
                 typedef int (*resolveWeakPtr)(int*, RtWeakPtr<int>*);
-                resolveWeakPtr funResolveWeakPtr = (resolveWeakPtr)getActualOffset(0x10C8780);
+                resolveWeakPtr funResolveWeakPtr = (resolveWeakPtr)getActualOffset(0x10DB9C0);  // Edited by jkn
                 v4 = funResolveWeakPtr(v8, &a1);
             }
         }

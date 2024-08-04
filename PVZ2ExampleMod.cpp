@@ -1096,22 +1096,22 @@ int hookHasPerkHandlerModuleProperties(int r0_0) {
             RtWeakPtr<int> v14 = RtWeakPtr<int>(); // probably a pointer to the level module object
             typedef void (*fromOther)(RtWeakPtr<int>*, RtWeakPtr<int>*);
             ((fromOther)(getActualOffset(0x10B59B8)))(&v14, (RtWeakPtr<int>*)(begin + v4));
-            // does not run 10CC81C, maybe there are side effects?
+            // does not run 10DFA5C, maybe there are side effects?
             int v8 = 0;
             int v9 = 0;
             typedef int (*RtWeakPtrRegistry)();
-            int v7 = ((RtWeakPtrRegistry)(getActualOffset(0x10C6764)))();
+            int v7 = ((RtWeakPtrRegistry)(getActualOffset(0x10D99A4)))(); // Edited by jkn
             RtWeakPtr<int> a1;
-            typedef void (*sub_10CC81C)(RtWeakPtr<int>*, int, RtWeakPtr<int>*);
-            ((sub_10CC81C)(getActualOffset(0x10CC81C)))(&a1, v7, &v14);
+            typedef void (*sub_10DFA5C)(RtWeakPtr<int>*, int, RtWeakPtr<int>*);
+            ((sub_10DFA5C)(getActualOffset(0x10DFA5C)))(&a1, v7, &v14);  // Edited by jkn
 
             if (!a1.is_invalid()) {
                 int typeId = a1.type_id();
-                typedef int (*sub_10CC404)(int, int);
-                int* v11 = (int*)((sub_10CC404)(getActualOffset(0x10CC404)))(v7, typeId);
+                typedef int (*sub_10DF644)(int, int);
+                int* v11 = (int*)((sub_10DF644)(getActualOffset(0x10DF644)))(v7, typeId); // Edited by jkn
                 if (v11) {
                     typedef int (*resolveWeakPtr)(int*, RtWeakPtr<int>*);
-                    v9 = ((resolveWeakPtr)(getActualOffset(0x10C8780)))(v11, &a1);
+                    v9 = ((resolveWeakPtr)(getActualOffset(0x10DB9C0)))(v11, &a1); // Edited by jkn
                 }
             }
 
@@ -1568,22 +1568,22 @@ void hkFun_649EC0(int* a1, int a2, int a3) {
 //        ((fromOther)(getActualOffset(0x10B59B8)))(&v13, &v12);
 //
 //        typedef int (*getRtWeakPtrRegistry)();
-//        int v3 = ((getRtWeakPtrRegistry)getActualOffset(0x10C6764))();
+//        int v3 = ((getRtWeakPtrRegistry)getActualOffset(0x10D99A4))(); // Edited by jkn
 //
-//        typedef void (*sub_10CC81C)(RtWeakPtr<int>*, int, RtWeakPtr<int>*);
+//        typedef void (*sub_10DFA5C)(RtWeakPtr<int>*, int, RtWeakPtr<int>*);
 //        RtWeakPtr<int> v15;
-//        ((sub_10CC81C)getActualOffset(0x10CC81C))(&v15, v3, &v13);
+//        ((sub_10DFA5C)getActualOffset(0x10DFA5C))(&v15, v3, &v13);  // Edited by jkn
 //
 //        int mowerAddr = 0;
 //        int v5 = 0;
 //        if (!v15.is_invalid()) {
 //            int typeId = v15.type_id();
 //            
-//            typedef int (*sub_10CC404)(int, int);
-//            int* v7 = (int*) ((sub_10CC404)getActualOffset(0x10CC404))(v3, typeId);
+//            typedef int (*sub_10DF644)(int, int);
+//            int* v7 = (int*) ((sub_10DF644)getActualOffset(0x10DF644))(v3, typeId); // Edited by jkn
 //            if (v7) {
 //                typedef int (*resolveWeakPtr)(int*, RtWeakPtr<int>*);
-//                v5 = ((resolveWeakPtr)(getActualOffset(0x10C8780)))(v7, &v15);
+//                v5 = ((resolveWeakPtr)(getActualOffset(0x10DB9C0)))(v7, &v15); // Edited by jkn
 //            }
 //        }
 //

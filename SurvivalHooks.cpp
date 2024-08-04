@@ -815,10 +815,10 @@ void hkLoad2(int a1, int a2) {
 	//			getV8 pGetRegistry = (getV8)getActualOffset(OFFSET_RTWEAKPTR_GETREGISTRY);
 	//			void* registry = pGetRegistry();
 
-	//			typedef int (*sub10CC404)(void*, int);
-	//			sub10CC404 pSub10CC404 = (sub10CC404)getActualOffset(OFFSET_RTWEAKPTR_UNKFUNC2);
+	//			typedef int (*sub10DF644)(void*, int);
+	//			sub10DF644 pSub10DF644 = (sub10DF644)getActualOffset(OFFSET_RTWEAKPTR_UNKFUNC2); // Edited by jkn
 
-	//			int v16 = pSub10CC404(registry, v14);
+	//			int v16 = pSub10DF644(registry, v14);
 	//			
 	//			typedef void (*sub10C69F0)(int, int);
 	//			((sub10C69F0)getActualOffset(0x10C69F0))(v16, 0);
