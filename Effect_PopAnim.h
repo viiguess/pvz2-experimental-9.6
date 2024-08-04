@@ -28,7 +28,7 @@ public:
 
 	int SetScale(float xScale, float yScale) {
 		typedef int (*setScale)(Effect_PopAnim*, float, float);
-		return ((setScale)getActualOffset(0xE47644))(this, xScale, yScale);
+		return ((setScale)getActualOffset(0xE56288))(this, xScale, yScale); // Edited by jkn
 	}
 
 	void SetFromResource(int resource, int a2) {
