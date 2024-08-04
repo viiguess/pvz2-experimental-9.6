@@ -3,7 +3,7 @@
 #include "TimeMgr.h"
 #include "ZombieStateHelper.h"
 
-#define ZOMBIE_EVENT_CONSTRUCT_ADDR 0x3A56A0
+#define ZOMBIE_EVENT_CONSTRUCT_ADDR 0x398040 // Edited by jkn
 
 static bool frogDelegatesSetup;
 static Sexy::DelegateBase frogLoopDelegate;
@@ -21,7 +21,7 @@ void FrogAnimOnStopOrLoop(Effect_FrogAnim* r0_0) {
 	int animSeqSize = r0_0->animSequence.size();
 	if (animSeqSize != 4) {
 		typedef void (*popAnimOnStopOrLoop)(Effect_PopAnim*);
-		((popAnimOnStopOrLoop)getActualOffset(0xE47970))(r0_0);
+		((popAnimOnStopOrLoop)getActualOffset(0xE565B4))(r0_0); // Edited by jkn
 		return;
 	}
 
@@ -54,7 +54,7 @@ void FrogAnimOnStopOrLoop(Effect_FrogAnim* r0_0) {
 		((zombieEventConstruct)getActualOffset(ZOMBIE_EVENT_CONSTRUCT_ADDR))(&onAnimStopped, &thisPtr, &eventName);
 
 		typedef int (*playAnimWithCallback)(PopAnimRig*, SexyString&, int, ZombieEvent&);
-		((playAnimWithCallback)getActualOffset(0x667AA8))(animRig, animEntry->animLabel, animEntry->selectionMethod, onAnimStopped);
+		((playAnimWithCallback)getActualOffset(0x65B894))(animRig, animEntry->animLabel, animEntry->selectionMethod, onAnimStopped); // Edited by jkn
 	}
 	else {
 		typedef int (*loopAnimWithCallback)(PopAnimRig*, SexyString&, int, ZombieEvent&);
@@ -65,7 +65,7 @@ void FrogAnimOnStopOrLoop(Effect_FrogAnim* r0_0) {
 		ZombieEvent onIdleLooped;
 		((zombieEventConstruct)getActualOffset(ZOMBIE_EVENT_CONSTRUCT_ADDR))(&onIdleLooped, &thisPtr, &eventName);
 
-		((loopAnimWithCallback)getActualOffset(0x667C88))(animRig, animEntry->animLabel, animEntry->selectionMethod, onIdleLooped);
+		((loopAnimWithCallback)getActualOffset(0x65BA74))(animRig, animEntry->animLabel, animEntry->selectionMethod, onIdleLooped); // Edited by jkn
 	}
 
 	r0_0->animSequenceCurrentIndexStartTime = TimeMgr::GetInstance()->m_curTime;
@@ -86,7 +86,7 @@ void Effect_FrogAnim::ModInit() {
 	LOGI("Initializing Effect_FrogAnim");
 	frogDelegatesSetup = false;
 
-	vftable = copyVFTable(getActualOffset(0x1C52168), 24); // make space for our last function
+	vftable = copyVFTable(getActualOffset(0x1CF7BC8), 24); // make space for our last function // Edited by jkn
 	patchVFTable(vftable, (void*)Effect_FrogAnim::GetRTClass, 0);
 	patchVFTable(vftable, (void*)FrogAnimOnStopOrLoop, 0x17);
 

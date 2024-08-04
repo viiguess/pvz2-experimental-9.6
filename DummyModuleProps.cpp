@@ -9,7 +9,7 @@ void* DummyModuleProps::GetModuleType() {
 }
 
 void DummyModuleProps::ModInit() {
-	vftable = copyVFTable(getActualOffset(0x1C46328), 20);
+	vftable = copyVFTable(getActualOffset(0x1CEB998), 20); // Edited by jkn
 
 	patchVFTable(vftable, (void*)DummyModuleProps::GetRTClass, 0);
 	patchVFTable(vftable, (void*)DummyModuleProps::GetModuleType, 14);

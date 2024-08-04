@@ -28,7 +28,7 @@ public:
 	int unk;
 	ZombieEvent delegate;
 
-	DEFINE_RT_CLASS_GET_CLASS_WRAPPER(0x1031C98);
+	DEFINE_RT_CLASS_GET_CLASS_WRAPPER(0x1044C28); // Edited by jkn
 };
 
 static_assert(sizeof(MoveBoard) == 0x40);
@@ -45,7 +45,7 @@ public:
 
 	void AddAnimController(AnimationController* animController, float startTime, float& endTime) {
 		typedef void (*addAnimController)(AnimationMgr*, AnimationController*, float, float*);
-		addAnimController pAddAnimController = (addAnimController)getActualOffset(0x10328C0);
+		addAnimController pAddAnimController = (addAnimController)getActualOffset(0x1045850); // Edited by jkn
 		
 		return pAddAnimController(this, animController, startTime, &endTime);
 	}

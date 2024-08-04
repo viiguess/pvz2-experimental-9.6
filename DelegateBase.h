@@ -1,6 +1,6 @@
 #pragma once
 
-#define SEXYDELEGATE_VTBL 0x1BB8A90
+#define SEXYDELEGATE_VTBL 0x1C5C758 // Edited by jkn
 
 namespace Sexy {
 	class DelegateBase

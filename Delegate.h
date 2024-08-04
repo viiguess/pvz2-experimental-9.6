@@ -31,7 +31,7 @@ public:
         , func_(func)
         , initialized(1)
     {
-        SetVFTable(this, (uintptr_t)GetActualOffset(0x1C5C048));
+        SetVFTable(this, (uintptr_t)GetActualOffset(0x1D01B44)); // Edited by jkn
         //executeCallbackFunc_ = &TDelegate<R(T::*)(Params...)>::ExecuteCallback;
         executeCallbackFunc_ = &TDelegate<R(T::*)(Params...)>::ExecuteCallback;
     }

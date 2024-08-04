@@ -19,7 +19,7 @@ public:
 	SexyVector2 translation;
 	char unk4[40];
 
-	DEFINE_RT_CLASS_GET_CLASS_WRAPPER(0xE45E40)
+	DEFINE_RT_CLASS_GET_CLASS_WRAPPER(0xE54A84) // Edited by jkn
 
 	int SetPositionAndLayer(SexyVector3 *a2, int layer) {
 		typedef int (*setPositionAndLayer)(Effect_PopAnim*, SexyVector3*, int);

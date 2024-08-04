@@ -7,7 +7,7 @@ typedef void* (*ParameterlessConstructorFunc)();
 typedef void* (*gridItemDefaultCtor)(int);
 
 static void constructDefaultLevelModule(int v0) {
-	((gridItemDefaultCtor)getActualOffset(0x54B4BC))(v0);
+	((gridItemDefaultCtor)getActualOffset(0x53EF3C))(v0); // Edited by jkn
 }
 
 class SixLaneModule : public LevelModule

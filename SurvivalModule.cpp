@@ -169,7 +169,7 @@ void SurvivalOnZombieDeath(SurvivalModule* self, Zombie* a2) {
 //	}
 //
 //	typedef void (*addAnimController)(AnimationMgr*, AnimationController*, float, float*);
-//	addAnimController pAddAnimController = (addAnimController)getActualOffset(0x10328C0);
+//	addAnimController pAddAnimController = (addAnimController)getActualOffset(0x1045850);  // Edited by jkn
 //
 // 	AnimationMgr* animMgr = animMgrPtr.get();
 //	int startX = 0, endX = 0;
@@ -179,11 +179,11 @@ void SurvivalOnZombieDeath(SurvivalModule* self, Zombie* a2) {
 //
 //	if (panDirection == 1) {
 //		typedef void (*getStartAndEnd)(int, int*, int*);
-//		((getStartAndEnd)getActualOffset(0x671824))(5, &startX, &endX);
+//		((getStartAndEnd)getActualOffset(0x665614))(5, &startX, &endX); // Edited by jkn
 //		
 //		typedef MoveBoard* (*getMovement)(float, int, int, int, int, int);
 //		LOGI("Move board startX = %d endX = %d", startX, endX);
-//		moveboard = ((getMovement)getActualOffset(0x334ED8))(2.5, startX, endX, 0, 0, 4);
+//		moveboard = ((getMovement)getActualOffset(0x326CC8))(2.5, startX, endX, 0, 0, 4); // Edited by jkn
 //
 //		float m_time = animMgr->m_time;
 //
@@ -197,7 +197,7 @@ void SurvivalOnZombieDeath(SurvivalModule* self, Zombie* a2) {
 //		typedef TimeEvent* (*makeTimeEvent)(RtWeakPtr<SurvivalModule>*, SexyString*);
 //		RtWeakPtr<SurvivalModule> thisPtr;
 //		thisPtr.FromOther((RtWeakPtr<SurvivalModule>*) & self->m_thisPtr);
-//		TimeEvent* timeEvent = ((makeTimeEvent)GetActualOffset(0x334F34))(&thisPtr, &eventName);
+//		TimeEvent* timeEvent = ((makeTimeEvent)GetActualOffset(0x326D24))(&thisPtr, &eventName); // Edited by jkn
 //
 //		float tmp;
 //		pAddAnimController(animMgr, timeEvent, endTime, &tmp);
@@ -489,7 +489,7 @@ void SurvivalModule::RegisterCallbacks(SurvivalModule* self) {
 	// ((standardIntroRegister)getActualOffset(0x670AE0))(self);
 
 	/*auto initialDelegate = CreateDelegate(
-		0x1BB8A90,
+		0x1C5C758, // Edited by jkn
 		(uint)SurvivalTransitionFromLoading,
 		false,
 		(uint)self,
@@ -499,7 +499,7 @@ void SurvivalModule::RegisterCallbacks(SurvivalModule* self) {
 	((addDelegate)getActualOffset(0x2A417C))(&levelModuleManager->transitionFromLoadingEvent, &initialDelegate, 0);*/
 
 	auto introDelegate = CreateDelegate(
-		0x1BB8A90,
+		0x1C5C758, // Edited by jkn
 		(uint)SurvivalIntro,
 		false,
 		(uint)self,
@@ -508,7 +508,7 @@ void SurvivalModule::RegisterCallbacks(SurvivalModule* self) {
 	);
 	pAddDelegate(&levelModuleManager->introEvent, &introDelegate, 0);
 
-	auto checkWaveDelegate = CreateEmptyDelegate(0x1BB8A90);
+	auto checkWaveDelegate = CreateEmptyDelegate(0x1C5C758); // Edited by jkn
 	checkWaveDelegate.callbackFunc = (uint)CheckCurrentWave;
 	checkWaveDelegate.useOwnerVtable = false;
 	checkWaveDelegate.callbackOwner = (uint) self;
@@ -518,7 +518,7 @@ void SurvivalModule::RegisterCallbacks(SurvivalModule* self) {
 	pAddDelegate(&levelModuleManager->unkEvent12, &checkWaveDelegate, 0);
 
 	auto startDelegate = CreateDelegate(
-		0x1BB8A90,
+		0x1C5C758, // Edited by jkn
 		(uint)SurvivalStart,
 		false,
 		(uint)self,
@@ -528,7 +528,7 @@ void SurvivalModule::RegisterCallbacks(SurvivalModule* self) {
 	pAddDelegate(&levelModuleManager->levelStartEvent, &startDelegate, 0);
 
 	auto onViewBoardOrZombiesPressed = CreateDelegate(
-		0x1BB8A90,
+		0x1C5C758, // Edited by jkn
 		(uint)SurvivalViewBoardOrZombies,
 		false,
 		(uint)self,
@@ -567,7 +567,7 @@ void SurvivalModule::RegisterCallbacks(SurvivalModule* self) {
 	((addDelegate)getActualOffset(0x32C5B0))(&levelModuleManager->unkEvent17, &renderQueueDelegate, 0);*/
 	
 	// unkEvent11 should be hooked up to clearing the animationMgr
-	/*auto clearAnimDelegate = CreateEmptyDelegate(0x1BB8A90);
+	/*auto clearAnimDelegate = CreateEmptyDelegate(0x1C5C758); // Edited by jkn
 	clearAnimDelegate.callbackFunc = (uint)ClearAnimMgr;
 	clearAnimDelegate.useOwnerVtable = false;
 	clearAnimDelegate.callbackOwner = (uint)self;
@@ -927,7 +927,7 @@ void SurvivalModule::ModInit() {
 	LOGI("SurvivalModule init");
 
 	// vftable = copyVFTable(getActualOffset(STANDARDLEVELINTRO_VTBL), 30);
-	vftable = copyVFTable(getActualOffset(0x1C41DE4), 19);
+	vftable = copyVFTable(getActualOffset(0x1CE7414), 19); // Edited by jkn
 	patchVFTable(vftable, (void*)SurvivalModule::GetRTClass, 0);
 	// TODO: Make custom destructors as well to deregister callbacks
 	patchVFTable(vftable, (void*)SurvivalModule::Destroy, 2);

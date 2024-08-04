@@ -53,7 +53,7 @@ public:
 		((void)__android_log_print(ANDROID_LOG_INFO, "PVZ2ExampleMod", "Constructing ""WaveManagerEndlessModule")); 
 		auto* instance = new WaveManagerEndlessModule(); 
 		typedef void* (*ctorWithThisPtr)(void*); 
-		ctorWithThisPtr baseCtor = (ctorWithThisPtr)GetActualOffset(0x54B4BC); 
+		ctorWithThisPtr baseCtor = (ctorWithThisPtr)GetActualOffset(0x53EF3C);  // Edited by jkn
 		baseCtor(instance); 
 
 		instance->propSheetPtr = RtWeakPtr<LevelModuleProperties>();

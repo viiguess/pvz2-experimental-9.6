@@ -7,9 +7,9 @@ class DummyModuleProps : public SeedBankProperties
 
 	DEFINE_RT_CLASS_BUILD_SYMBOLS_WITHOUT_CLASS_PROPERTIES(SeedBankProperties);
 
-	DEFINE_RT_CLASS_CONSTRUCT_FUNCTION(DummyModuleProps, 0xD56634);
+	DEFINE_RT_CLASS_CONSTRUCT_FUNCTION(DummyModuleProps, 0xD620DC); // Edited by jkn
 
-	DEFINE_RT_CLASS_GET_CLASS_FUNCTION(DummyModuleProps, 0xD55E8C);
+	DEFINE_RT_CLASS_GET_CLASS_FUNCTION(DummyModuleProps, 0xD61934); // Edited by jkn
 
 	DEFINE_RT_CLASS_REGISTER_CLASS_FUNCTION(DummyModuleProps);
 

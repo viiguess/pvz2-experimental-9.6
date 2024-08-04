@@ -1372,8 +1372,8 @@ bool hkBoardCanAddGridItemHere(Board* board, uint col, uint row, int a4, int a5)
         int v27 = 0;
         uint v25 = (uint)((col << 6) + 0xE8);
         uint v26 = (uint)(0x4C * row + 0xDE);
-        typedef int (*sub_72A6D0)(int, int, int);
-        //if ( !((sub_72A6D0)(getActualOffset(0x72A6D0)))(a1,  )
+        typedef int (*sub_720070)(int, int, int);
+        //if ( !((sub_720070)(getActualOffset(0x720070)))(a1,  ) // Edited by jkn
     }
     */
     // LOGI("ask for can add grid item here col %d row %d", col, row);
@@ -2592,7 +2592,7 @@ void libPVZ2ExampleMod_main()
     PVZ2HookFunction(0xF3A78C, (void*)hookPlantGroupInitWithGridCoords, (void**)&oPlantGroupInitWithGridCoords, "PlantGroup::InitWithGridCoords");
 
     // make lawn with 6 lanes move upwards a bit
-    // PVZ2HookFunction(0x334ED8, (void*)hkMoveBoardFunc, (void**)&oMoveBoardFunc, "MoveBoard");
+    // PVZ2HookFunction(0x326CC8, (void*)hkMoveBoardFunc, (void**)&oMoveBoardFunc, "MoveBoard"); // Edited by jkn
     // PVZ2HookFunction(0x7373A8, (void*)hookFun_7373A8, (void**)&oFun_7373A8, "sub_7373A8");
     // PVZ2HookFunction(0x716E78, (void*)hookFun_716C5C, (void**)&oFun_716C5C, "sub_716C5C");
     PVZ2HookFunction(0x72692C, (void*)hookBoardRenderLawn, (void**)&oBoardRenderLawn, "sub_72692C");

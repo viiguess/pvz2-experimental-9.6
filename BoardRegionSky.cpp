@@ -30,7 +30,7 @@ void BoardRegionSky::ModInit() {
 
 	patchVFTable(vftable, (void*)BoardRegionSky::GetRTClass, 0); // We aren't currently using this class
 	patchVFTable(vftable, (void*)SkyEntityLandedCallback, 14);
-	patchVFTable(vftable, (void*)getActualOffset(0x4AD038), 15); // Tide's CanPlantGoHere logic
+	patchVFTable(vftable, (void*)getActualOffset(0x49F77C), 15); // Tide's CanPlantGoHere logic // Edited by jkn
 
 	GetRTClass();
 	LOGI("Finished initializing BoardRegionSky");
@@ -38,5 +38,5 @@ void BoardRegionSky::ModInit() {
 
 bool SkyExistsAtPosition(SexyVector3* position) {
 	typedef BoardRegion* (*findRegionWithFlags)(Board*, SexyVector3*, int);
-	return ((findRegionWithFlags)getActualOffset(0x72A6D0))(getBoard(), position, region_sky) != NULL;
+	return ((findRegionWithFlags)getActualOffset(0x720070))(getBoard(), position, region_sky) != NULL; // Edited by jkn
 }

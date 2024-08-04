@@ -7,10 +7,10 @@
 
 #define ZOMBIE_STATE_CONSTRUCT_ADDR 0x743530
 #define ZOMBIE_STATE_REGISTER_ADDR 0x743458
-#define ZOMBIE_EVENT_CONSTRUCT_ADDR 0x3A56A0
+#define ZOMBIE_EVENT_CONSTRUCT_ADDR 0x398040 // Edited by jkn
 
 const uint delegateZombieState = 0x1C08B30;
-const uint delegateGeneric = 0x1BB8A90;
+const uint delegateGeneric = 0x1C5C758; // Edited by jkn
 const uint executeCallbackFunc = 0x88AA78; // they all look the same
 
 typedef int (*sub3B13D0)(Reflection::CRefManualSymbolBuilder*);
@@ -106,7 +106,7 @@ void RegisterEventOnIdleLoop(Zombie* zombie, const SexyString& animName, const S
 
 	typedef int (*playAnimWithCallback)(uint, SexyString&, int, ZombieEvent&);
 	SexyString animNameCopy = animName;
-	((playAnimWithCallback)getActualOffset(0x667C88))(animRig, animNameCopy, 3, zombieEvent);
+	((playAnimWithCallback)getActualOffset(0x65BA74))(animRig, animNameCopy, 3, zombieEvent); // Edited by jkn
 }
 
 void RegisterEventOnLoop(Zombie* zombie, const SexyString& animName, const SexyString& eventName) {
@@ -119,7 +119,7 @@ void RegisterEventOnLoop(Zombie* zombie, const SexyString& animName, const SexyS
 
 	typedef int (*playAnimWithCallback)(ZombieAnimRig*, SexyString&, int, ZombieEvent&);
 	SexyString animNameCopy = animName;
-	((playAnimWithCallback)getActualOffset(0x667C88))(animRig, animNameCopy, 0, zombieEvent);
+	((playAnimWithCallback)getActualOffset(0x65BA74))(animRig, animNameCopy, 0, zombieEvent); // Edited by jkn
 }
 
 void SetupLiteralDelegate(Sexy::DelegateBase* delegate, void (*delegateFun)(Zombie*)) {

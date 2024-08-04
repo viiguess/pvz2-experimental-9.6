@@ -28,7 +28,7 @@ void SkyModule::RegisterCallbacks(SkyModule *self) {
 	typedef int (*sub2A417C)(uint, Sexy::DelegateBase*, int);
 
 	// Takes code from 4AADF8
-	Sexy::DelegateBase delegate = CreateEmptyDelegate(0x1BB8A90);
+	Sexy::DelegateBase delegate = CreateEmptyDelegate(0x1C5C758); // Edited by jkn
 	delegate.useOwnerVtable = false;
 	delegate.callbackFunc = (uint) SkyModuleInitRegion;
 	delegate.callbackOwner = (uint) self;
@@ -43,7 +43,7 @@ void SkyModule::RegisterCallbacks(SkyModule *self) {
 void SkyModule::ModInit() {
 	LOGI("SkyModule init");
 	
-	vftable = copyVFTable(getActualOffset(0x1C41DE4), 19);
+	vftable = copyVFTable(getActualOffset(0x1CE7414), 19); // Edited by jkn
 
 	patchVFTable(vftable, (void*)SkyModule::GetRTClass, 0);
 	patchVFTable(vftable, (void*)SkyModule::RegisterCallbacks, 7);

@@ -15,7 +15,7 @@ namespace Reflection
         void GetInnerTemplateTypeName(const SexyString& typeName)
         {
             typedef void(*func)(SexyString&, const SexyString&);
-            func pFunc = (func)getActualOffset(0x121F944);
+            func pFunc = (func)getActualOffset(0x1232B84); // Edited by jkn
             SexyString outStr;
             pFunc(outStr, typeName);
             LOGI("Out inner typename: %s", outStr.c_str());

@@ -7,7 +7,7 @@ DEFINE_STATIC_RT_CLASS_MEMBERS(DummyModule);
 void DummyModule::ModInit() {
 	LOGI("DummyModule init");
 
-	vftable = copyVFTable(getActualOffset(0x1C41DE4), 19);
+	vftable = copyVFTable(getActualOffset(0x1CE7414), 19); // Edited by jkn
 
 	patchVFTable(vftable, (void*)DummyModule::GetRTClass, 0);
 

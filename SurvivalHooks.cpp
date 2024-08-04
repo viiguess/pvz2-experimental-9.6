@@ -76,16 +76,16 @@ void hkFun210(CowboyMinigameModule* a1, int a2) {
 	LOGI("custom move called");
 
 	typedef void (*addAnimController)(AnimationMgr*, AnimationController*, float, float*);
-	addAnimController pAddAnimController = (addAnimController)getActualOffset(0x10328C0);
+	addAnimController pAddAnimController = (addAnimController)getActualOffset(0x1045850);  // Edited by jkn
 
 	int startX, endX;
 
 	typedef void (*getStartAndEnd)(int, int*, int*);
-	((getStartAndEnd)getActualOffset(0x671824))(5, &startX, &endX);
+	((getStartAndEnd)getActualOffset(0x665614))(5, &startX, &endX); // Edited by jkn
 
 	typedef MoveBoard* (*getMovement)(float, int, int, int, int, int);
 	LOGI("Move board startX = %d endX = %d", startX, endX);
-	MoveBoard* moveboard = ((getMovement)getActualOffset(0x334ED8))(2.5, startX, endX, 0, 0, 4);
+	MoveBoard* moveboard = ((getMovement)getActualOffset(0x326CC8))(2.5, startX, endX, 0, 0, 4); // Edited by jkn
 
 	RtWeakPtr<AnimationMgr> animMgrPtr;
 	animMgrPtr.FromOther(&a1->m_animationMgr);
@@ -103,7 +103,7 @@ void hkFun210(CowboyMinigameModule* a1, int a2) {
 	typedef TimeEvent* (*makeTimedEvent)(RtWeakPtr<CowboyMinigameModule>*, SexyString*);
 	RtWeakPtr<CowboyMinigameModule> minigamePtr;
 	minigamePtr.FromOther((RtWeakPtr<CowboyMinigameModule>*) &a1->m_thisPtr);
-	TimeEvent* timeEvent = ((makeTimedEvent)getActualOffset(0x334F34))(&minigamePtr, &eventName);
+	TimeEvent* timeEvent = ((makeTimedEvent)getActualOffset(0x326D24))(&minigamePtr, &eventName); // Edited by jkn
 	
 	float tmp;
 	// pAddAnimController(animMgr, timeEvent, endTime, &tmp);
@@ -787,7 +787,7 @@ void hkLoad(Board* a1, int a2) {
 	((resetup)getActualOffset(0x71F5AC))(board, saveStateInstance);
 
 	typedef void (*entityDie)(int);
-	((entityDie)getActualOffset(0x54BA18))(saveStateInstance);
+	((entityDie)getActualOffset(0x53F498))(saveStateInstance); // Edited by jkn
 
 	*(int*)((uint)board + 0x2C4) = board->m_boardState;
 	board->ChangeState(2);

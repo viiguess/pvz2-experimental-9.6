@@ -13,7 +13,7 @@ void PlaySuccessiveAnims(Effect_PopAnim* popAnim, std::vector<SexyString> &anims
 	}
 	
 	typedef void (*onCurrentAnimStop)(Effect_PopAnim*);
-	((onCurrentAnimStop)getActualOffset(0xE47970))(popAnim);
+	((onCurrentAnimStop)getActualOffset(0xE565B4))(popAnim); // Edited by jkn
 }
 
 bool Effect_PopAnim::IsPaused() {

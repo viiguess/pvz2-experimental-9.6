@@ -19,7 +19,7 @@ public:
 
 	void Die() {
 		typedef void (*DieFunc)(BoardEntity*);
-		((DieFunc) GetActualOffset(0x54BA18))(this);
+		((DieFunc) GetActualOffset(0x53F498))(this); // Edited by jkn
 	}
 
 	void GetGridCoords(int* res) {

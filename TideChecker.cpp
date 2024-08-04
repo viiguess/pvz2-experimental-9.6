@@ -73,7 +73,7 @@ int hkFun18(int board, SexyVector3* vec, int flag) {
 	/*else {
 		assert(finalRes == 0);
 	}*/ // special code to make tide not work
-	// LOGI("72A6D0 called %f %f result %d finalRes = %u addr = %u", vec->mX, vec->mY, res18Saved, (uint)finalRes, getOriginalOffset(*(uint*)finalRes + 0x40));
+	// LOGI("720070 called %f %f result %d finalRes = %u addr = %u", vec->mX, vec->mY, res18Saved, (uint)finalRes, getOriginalOffset(*(uint*)finalRes + 0x40)); // Edited by jkn
 	return finalRes;
 }
 
@@ -548,7 +548,7 @@ void hkFun51(int region, SexyVector3* a2) {
 void initTideHooks() {
 	// PVZ2HookFunction(0x72AA84, (void*)hkBoardWaterExistsAtPos, (void**)&oBoardWaterExistsAtPos, "Board::WaterExistsAtPosition");
 	// PVZ2HookFunction(0x72A148, (void*)hkFun19, (void**)&oFun19, "fun19");
-	PVZ2HookFunction(0x72A6D0, (void*)hkFun18, (void**)&oFun18, "GetRegionWithFlag");
+	PVZ2HookFunction(0x720070, (void*)hkFun18, (void**)&oFun18, "GetRegionWithFlag"); // Edited by jkn
 	PVZ2HookFunction(0x729F7C, (void*)hkFun17, (void**)&oFun17, "fun17");
 	PVZ2HookFunction(0xCE0054, (void*)hkFun32, (void**)&oFun32, "fun32");
 

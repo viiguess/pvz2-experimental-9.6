@@ -41,9 +41,9 @@ public:
 		buildEventCallbacks(builder, (void*) rclass);
 	}
 
-	DEFINE_RT_CLASS_CONSTRUCT_FUNCTION(Effect_FrogAnim, 0xE46DD8);
+	DEFINE_RT_CLASS_CONSTRUCT_FUNCTION(Effect_FrogAnim, 0xE55A1C); // Edited by jkn
 
-	DEFINE_RT_CLASS_GET_CLASS_FUNCTION(Effect_FrogAnim, 0xE45E40);
+	DEFINE_RT_CLASS_GET_CLASS_FUNCTION(Effect_FrogAnim, 0xE54A84); // Edited by jkn
 
 	DEFINE_RT_CLASS_REGISTER_CLASS_FUNCTION(Effect_FrogAnim);
 

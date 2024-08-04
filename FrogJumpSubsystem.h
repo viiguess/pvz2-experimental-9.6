@@ -103,7 +103,7 @@ public:
 
 		auto* instance = new FrogJumpSubsystem(); 
 		typedef void* (*ctorWithThisPtr)(void*); 
-		ctorWithThisPtr baseCtor = (ctorWithThisPtr)GetActualOffset(0x54B4BC);
+		ctorWithThisPtr baseCtor = (ctorWithThisPtr)GetActualOffset(0x53EF3C); // Edited by jkn
 		
 		baseCtor(instance);
 		memset(&instance->m_chickenings, 0, sizeof(0xC));

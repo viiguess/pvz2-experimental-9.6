@@ -61,7 +61,7 @@ public:
 		auto* instance = new SurvivalModule(); 
 		typedef void* (*ctorWithThisPtr)(void*); 
 		// ctorWithThisPtr baseCtor = (ctorWithThisPtr)GetActualOffset(0xA29B5C); 
-		ctorWithThisPtr baseCtor = (ctorWithThisPtr)GetActualOffset(0x54B4BC); 
+		ctorWithThisPtr baseCtor = (ctorWithThisPtr)GetActualOffset(0x53EF3C);  // Edited by jkn
 		baseCtor(instance); 
 
 		// instance->unkEffectPtr = RtWeakPtr<StandaloneEffect>();

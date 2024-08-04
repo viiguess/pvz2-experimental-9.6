@@ -3,10 +3,10 @@
 #include "GameObject.h"
 #include "BoardEntity.h"
 
-#define BOARDREGION_CONSTRUCT_ADDR 0x104FCE0
-#define BOARDREGION_SETFLAG_ADDR 0x104FD24
-#define BOARDREGION_VFTABLE_ADDR 0x1C64648
-#define BOARDREGION_GETCLASS_ADDR 0x104F7F0
+#define BOARDREGION_CONSTRUCT_ADDR 0x1062E84 // Edited by jkn
+#define BOARDREGION_SETFLAG_ADDR 0x1062EC8 // Edited by jkn
+#define BOARDREGION_VFTABLE_ADDR 0x1D0A534 // Edited by jkn
+#define BOARDREGION_GETCLASS_ADDR 0x1062994 // Edited by jkn
 
 class BoardRegionLandedEntity {
 public:
@@ -28,8 +28,8 @@ public:
 	int unk;
 
 	void SetRegionFlag(int flag) {
-		typedef int (*sub104FD24)(BoardRegion*, int);
-		((sub104FD24)getActualOffset(BOARDREGION_SETFLAG_ADDR))(this, flag);
+		typedef int (*sub1062EC8)(BoardRegion*, int); // Edited by jkn
+		((sub1062EC8)getActualOffset(BOARDREGION_SETFLAG_ADDR))(this, flag);
 	}
 
 	virtual void Function13() { };

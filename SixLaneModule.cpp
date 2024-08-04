@@ -13,7 +13,7 @@ void SixLaneModule::registerDelegates(SixLaneModule* self) {
 void SixLaneModule::modInit() {
 	LOGI("SixLaneModule mod init");
 
-	vftable = copyVFTable(getActualOffset(0x1C41DE4), 19);
+	vftable = copyVFTable(getActualOffset(0x1CE7414), 19); // Edited by jkn
 
 	patchVFTable(vftable, (void*)SixLaneModule::getRTClass, 0);
 	patchVFTable(vftable, (void*)SixLaneModule::registerDelegates, 7);
