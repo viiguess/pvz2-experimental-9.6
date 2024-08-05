@@ -105,13 +105,13 @@ void RunFrogSubsystem(FrogJumpSubsystem* subsystem) {
 					assert(plant != NULL);
 
 					if (plant->m_column < 9) {
-						typedef void (*sub64AD88)(int, uint, uint, Plant*, Point*);
-						int messageRouter = *(int*)getActualOffset(0x1C85050);
+						typedef void (*sub63ECF8)(int, uint, uint, Plant*, Point*);
+						int messageRouter = *(int*)getActualOffset(0x1D2A050); // Edited by jkn
 						typedef uint(*getListeners)(int, uint);
 						getListeners func = *(getListeners*)(*(uint*)messageRouter + 0xC);
-						int v22 = func(messageRouter, getActualOffset(0xE7BE80));
+						int v22 = func(messageRouter, getActualOffset(0xE8AC88)); // Edited by jkn
 						Point newPoint = Point(plant->m_column + 1, plant->m_row);
-						((sub64AD88)getActualOffset(0x64AD88))(messageRouter, getActualOffset(0xE7BE80), v22, plant, &newPoint);
+						((sub63ECF8)getActualOffset(0x63ECF8))(messageRouter, getActualOffset(0xE8AC88), v22, plant, &newPoint); // Edited by jkn
 						//LOGI("Doing listeners call to nullsub 145");
 
 						if (plant->m_column + 1 == 9) {
@@ -120,7 +120,7 @@ void RunFrogSubsystem(FrogJumpSubsystem* subsystem) {
 						}
 
 						typedef void (*relocate)(Plant*, int, int);
-						((relocate)getActualOffset(0xE81A3C))(plant, plant->m_column + 1, plant->m_row);
+						((relocate)getActualOffset(0xE907E4))(plant, plant->m_column + 1, plant->m_row); // Edited by jkn
 					}
 				}
 
@@ -160,30 +160,30 @@ void RunFrogSubsystem(FrogJumpSubsystem* subsystem) {
 
 					typedef bool (*canPlantTypeGoHere)(uint, Point*, RtWeakPtr<int>*, int);
 					typedef int (*getBoardPlanting)();
-					int boardPlanting = ((getBoardPlanting)getActualOffset(0x2AD5A0))();
+					int boardPlanting = ((getBoardPlanting)getActualOffset(0x29EC78))(); // Edited by jkn
 					Point plantPoint = Point(plant->m_column, plant->m_row);
 					RtWeakPtr<int> plantType = RtWeakPtr<int>();
 					plantType.FromOther(&plant->m_type);
 					int plantTypeReal = (int) plantType.get();
 
 					FrogJumpSubsystem::checkIgnoreFrogs = true;
-					bool canPlantGoHere = ((canPlantTypeGoHere)getActualOffset(0x6490B8))(boardPlanting, &plantPoint, &plantType, -1);
+					bool canPlantGoHere = ((canPlantTypeGoHere)getActualOffset(0x63D024))(boardPlanting, &plantPoint, &plantType, -1); // Edited by jkn
 					FrogJumpSubsystem::checkIgnoreFrogs = false;
 
 					// LOGI("Can plant go here = %d", canPlantGoHere);
 
 					if (!canPlantGoHere) {
 						typedef void (*plantDie)(Plant*, uint64_t);
-						((plantDie)getActualOffset(0xE83498))(plant, 0x2000000000LL);
+						((plantDie)getActualOffset(0xE92244))(plant, 0x2000000000LL); // Edited by jkn, original function has been rewrote, may not work
 					}
 					else {
 						typedef void (*plantRemoveCond)(Plant*, PlantConditions);
 
 						if (plant->m_conditionTracker.HasCondition(plant_sheeped)) {
-							((plantRemoveCond)getActualOffset(0xE89C24))(plant, plant_sheeped);
+							((plantRemoveCond)getActualOffset(0xE989C0))(plant, plant_sheeped); // Edited by jkn
 						}
 						else if (plant->m_conditionTracker.HasCondition(plantgroup_sheeped)) {
-							((plantRemoveCond)getActualOffset(0xE89C24))(plant, plantgroup_sheeped);
+							((plantRemoveCond)getActualOffset(0xE989C0))(plant, plantgroup_sheeped); // Edited by jkn
 						}
 					}
 				}
@@ -225,7 +225,7 @@ void* FrogJumpSubsystem::Destroy(FrogJumpSubsystem* subsystem) {
 	subsystem->m_frogs.~vector<Frog>();
 	
 	typedef void* (*ChickenSubsystemDestroy)(ZombieChickenSubsystem*);
-	return ((ChickenSubsystemDestroy) getActualOffset(0x341E04))(subsystem);
+	return ((ChickenSubsystemDestroy) getActualOffset(0x3340B8))(subsystem); // Edited by jkn
 }
 
 void FrogJumpSubsystem::DestroyAndDealloc(FrogJumpSubsystem* subsystem) {
@@ -235,7 +235,7 @@ void FrogJumpSubsystem::DestroyAndDealloc(FrogJumpSubsystem* subsystem) {
 
 void FrogJumpSubsystem::ModInit() {
 	LOGI("Initializing FrogJumpSubsystem");
-	vftable = copyVFTable(getActualOffset(0x1C12F04), 15);
+	vftable = copyVFTable(getActualOffset(0x1CB7548), 15); // Edited by jkn
 	patchVFTable(vftable, (void*)FrogJumpSubsystem::GetRTClass, 0);
 	patchVFTable(vftable, (void*)FrogJumpSubsystem::Destroy, 2); // not testing these atm
 	patchVFTable(vftable, (void*)FrogJumpSubsystem::DestroyAndDealloc, 3);

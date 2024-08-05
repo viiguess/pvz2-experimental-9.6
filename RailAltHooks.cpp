@@ -170,7 +170,7 @@ void hkGridItemRailcartMove(GridItem* railcart, int theTouch) {
 	
 	// the cart move. We have to move the PlantGroup as well
 	typedef int (*getBoardPlanting)();
-	int boardPlanting = ((getBoardPlanting)getActualOffset(0x2AD5A0))();
+	int boardPlanting = ((getBoardPlanting)getActualOffset(0x29EC78))();  // Edited by jkn
 	int curCoords[2] = { railcart->gridX, railcart->gridY };
 	int newCoords[2] = { railX, railY };
 
@@ -252,7 +252,7 @@ void hkGridItemRailcartMove(GridItem* railcart, int theTouch) {
 
 	// LOGI("audio played");
 
-	int gMessageRouter = *(int*)getActualOffset(0x1C85050);
+	int gMessageRouter = *(int*)getActualOffset(0x1D2A050); // Edited by jkn
 	typedef int* (*getListeners)(int, int);
 	getListeners fun = *(getListeners*)(*(int*)gMessageRouter + 0xC);
 	// LOGI("function got");

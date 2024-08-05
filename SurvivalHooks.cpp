@@ -959,13 +959,13 @@ void hkSpawnSpore(int a1, Plant* a2) {
 	((getPlantType)getActualOffset(0x26A66C))(&plantType, instance, &plantName);
 
 	typedef int (*getBoardPlanting)();
-	int boardPlanting = ((getBoardPlanting)getActualOffset(0x2AD5A0))();
+	int boardPlanting = ((getBoardPlanting)getActualOffset(0x29EC78))();  // Edited by jkn
 
 	RtWeakPtr<int> plantTypeCpy;
 	plantTypeCpy.FromOther(&plantType);
 
 	typedef bool (*canPlantTypeGoHere)(int, int*, RtWeakPtr<int>*, int);
-	bool canSpawn = ((canPlantTypeGoHere)getActualOffset(0x6490B8))(boardPlanting, coords, &plantTypeCpy, -1);
+	bool canSpawn = ((canPlantTypeGoHere)getActualOffset(0x63D024))(boardPlanting, coords, &plantTypeCpy, -1); // Edited by jkn
 
 	if (canSpawn) {
 		int v11[3] = { 0x100, 0, -1 };

@@ -2526,7 +2526,7 @@ void libPVZ2ExampleMod_main()
     // int __fastcall BoardPlanting::AddPlantAt(int r0_0, int a2, int a3, RtWeakPtr *a4, unsigned __int8 *a5)
     // a2 is column and a3 is row, 0-indexed
 
-    // BoardPlanting__CanPlantTypeGoHere	.text	006490B8	00000088	00000030		R	.	.	.	.	.	B	T	.
+    // BoardPlanting__CanPlantTypeGoHere	.text	0063D024	00000088	00000030		R	.	.	.	.	.	B	T	.
     // int __fastcall BoardPlanting::CanPlantTypeGoHere(int r0_0, int *a2, int a3, int a4)
 
     PVZ2HookFunction(0x952864, (void*)hookGetBoard, (void**)&oGetBoard, "GetBoard");
@@ -2535,7 +2535,7 @@ void libPVZ2ExampleMod_main()
 #ifdef SOTRUE
     PVZ2HookFunction(0x649FF4, (void*)newCanPlantAt, (void**)&oCanPlantAt, "BoardPlanting::CanPlantAt");
     PVZ2HookFunction(0x649784, (void*)newAddPlantAt, (void**)&oAddPlantAt, "BoardPlanting::AddPlantAt");
-    PVZ2HookFunction(0x6490B8, (void*)newCanPlantTypeGoHere, (void**)&oCanPlantTypeGoHere, "BoardPlanting::CanPlantTypeGoHere");
+    PVZ2HookFunction(0x63D024, (void*)newCanPlantTypeGoHere, (void**)&oCanPlantTypeGoHere, "BoardPlanting::CanPlantTypeGoHere"); // Edited by jkn
     // PVZ2HookFunction(0xCF3DA8, (void*)hookFun_CF3DA8, (void**)&oFun_CF3DA8, "PlantCursor::sub_CF3DA8");
     // PVZ2HookFunction(0xCF3BE4, (void*)hookPlantCursorGetGridCoords, (void**)&oPlantCursorGetGridCoords, "PlantCursor::sub_CF3BE4");
     PVZ2HookFunction(0x640534, (void*)hookPosYToGridY, (void**)&oPosYToGridY, "Board::PosYToGridY");
@@ -2606,7 +2606,7 @@ void libPVZ2ExampleMod_main()
 
     // plant cursor stops showing up on lane 6 fix
     PVZ2HookFunction(0xCF3CC4, (void*)hkPlantCursorCanPlantOnCursor, (void**)&oPlantCursorCanPlantOnCursor, "sub_CF3CC4");
-    PVZ2HookFunction(0x2AD5A0, (void*)hookGetBoardPlanting, (void**)&oGetBoardPlanting, "GetBoardPlanting");
+    PVZ2HookFunction(0x29EC78, (void*)hookGetBoardPlanting, (void**)&oGetBoardPlanting, "GetBoardPlanting");  // Edited by jkn
 
     // sub_A9EBD8 looks interesting. Row iteration?
 
