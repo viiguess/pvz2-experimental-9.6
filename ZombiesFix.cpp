@@ -239,7 +239,7 @@ void hkImpKillOnBounds(int a1) {
 
 void initZombiesFix() {
 	zombieEnterState = (zombieEnterStateType)getActualOffset(0x8AEC44);
-	zombieSetSpawnPosition = (zombieSetSpawnPositionType)getActualOffset(0x2D874C);
+	zombieSetSpawnPosition = (zombieSetSpawnPositionType)getActualOffset(0x2C9DEC); // Edited by jkn
 	getDbInstance = (getDbInstanceType)getActualOffset(0x274CE4);
 	getTypeFromID = (getTypeFromIDType)getActualOffset(0xDDCEB4);
 

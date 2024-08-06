@@ -61,8 +61,8 @@ void gridItemPuddleDtor(int* puddle) {
 	// LOGI("Puddle dtor %d %d", mX, mY);
 	erasePuddle(mX, mY);
 
-	typedef int (*fun411E14)(int*);
-	int v1 = ((fun411E14)getActualOffset(0x411E14))(puddle);
+	typedef int (*fun404AD4)(int*);
+	int v1 = ((fun404AD4)getActualOffset(0x404AD4))(puddle); // Edited by jkn
 	operator delete((void*)v1);
 }
 
@@ -75,12 +75,11 @@ int gridItemPuddleSetSpawnLocation(int puddle, SexyVector3* loc) {
 	insertPuddle(gridX, gridY, true); // create new region for this puddle
 
 	typedef int (*oSetSpawnLocation)(int, SexyVector3*);
-	return ((oSetSpawnLocation)getActualOffset(0x2D874C))(puddle, loc);
-}
+	return ((oSetSpawnLocation)getActualOffset(0x2C9DEC))(puddle, loc); // Edited by jkn
 
 int gridItemPuddleLoadObj(int* puddle, int a2) {
 	typedef int (*propSheetBaseFun6)(int*, int);
-	((propSheetBaseFun6)getActualOffset(0x54B7A0))(puddle, a2);
+	((propSheetBaseFun6)getActualOffset(0x53F220))(puddle, a2); // Edited by jkn
 
 	int mX = puddle[0x38], mY = puddle[0x39];
 	// LOGI("Loaded crater %d %d", mX, mY);
@@ -92,13 +91,13 @@ int gridItemPuddleLoadObj(int* puddle, int a2) {
 void GridItemPuddle::modInit() {
 	LOGI("GridItemPuddle mod init");
 
-	oBoardRegionTideWaterGetType = (boardRegionTideWaterGetType)getActualOffset(0x4ACF3C);
-	oRemoveRegion = (removeRegion)getActualOffset(0x72AB94);
-	oCreateBoardRegionOfType = (createBoardRegionOfType)getActualOffset(0x72AAA0); // create a tide water region
-	oSetRegion = (setRegion)getActualOffset(0x104FE10); // set the boundaries
+	oBoardRegionTideWaterGetType = (boardRegionTideWaterGetType)getActualOffset(0x49F680); // Edited by jkn
+	oRemoveRegion = (removeRegion)getActualOffset(0x720534); // Edited by jkn
+	oCreateBoardRegionOfType = (createBoardRegionOfType)getActualOffset(0x720440); // create a tide water region // Edited by jkn
+	oSetRegion = (setRegion)getActualOffset(0x1062FB4); // set the boundaries // Edited by jkn
 	tideWaterType = oBoardRegionTideWaterGetType();
 
-	vftable = copyVFTable(getActualOffset(0x1BC2030), 67);
+	vftable = copyVFTable(getActualOffset(0x1C65DB4), 67); // Edited by jkn
 
 	patchVFTable(vftable, (void*)GridItemPuddle::getRTClass, 0);
 	patchVFTable(vftable, (void*)gridItemPuddlesCanPlantGoHere, 55); 
@@ -152,7 +151,7 @@ RtWeakPtr<int>* getRegionForPuddle(int x, int y) {
 	int gridCoords[2] = { x, y };
 	typedef void (*getRegionsContainingCoords)(std::vector<int>*, Board*, int*);
 	std::vector<int> regions;
-	((getRegionsContainingCoords)getActualOffset(0x72AF48))(&regions, board, gridCoords);
+	((getRegionsContainingCoords)getActualOffset(0x7208E8))(&regions, board, gridCoords); // Edited by jkn
 
 	int correctRegion = 0;
 	LOGI("Regions for %d %d", x, y);

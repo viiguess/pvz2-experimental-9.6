@@ -11,7 +11,7 @@ typedef void* (*ParameterlessConstructorFunc)();
 typedef void* (*gridItemDefaultCtor)(int);
 
 static void constructDefaultGridItem(int v0) {
-	((gridItemDefaultCtor)getActualOffset(0x411DBC))(v0);
+	((gridItemDefaultCtor)getActualOffset(0x404A7C))(v0); // Edited by jkn
 }
 
 // so I'll have to create an unique typeInfo as well?
@@ -29,7 +29,7 @@ public:
 		
 		constructDefaultGridItem((int)v0);
 		*(uint*)v0 = (uint) vftable;
-		((int*)v0)[4] = getActualOffset(0x1BC2144); // just refer to crater's typeInfo. Idk if this can cause issues
+		((int*)v0)[4] = getActualOffset(0x1C65ECC); // just refer to crater's typeInfo. Idk if this can cause issues // Edited by jkn
 
 		return (void*)v0;
 	}
@@ -38,14 +38,14 @@ public:
 		if (!s_rtClass) {
 			void* v1;
 			typedef void* (*initRtClass)();
-			v1 = ((initRtClass)getActualOffset(0x12501AC))();  // Edited by jkn
+			v1 = ((initRtClass)getActualOffset(0x12501AC))(); // Edited by jkn
 			s_rtClass = v1;
 			
 			typedef int (*rtClassRegisterClass)(void*, const char*, int, ParameterlessConstructorFunc);
 			rtClassRegisterClass v2 = *(rtClassRegisterClass*)(*(uint*)v1 + 0x20);
 
 			typedef int (*gridItemCraterGetClass)();
-			int parentClass = ((gridItemCraterGetClass)getActualOffset(0x364020))();
+			int parentClass = ((gridItemCraterGetClass)getActualOffset(0x356598))(); // Edited by jkn
 			v2(v1, "GridItemPuddle", parentClass, GridItemPuddle::construct);
 
 			GridItemPuddle::registerClass();

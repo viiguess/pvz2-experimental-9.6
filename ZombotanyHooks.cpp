@@ -32,7 +32,7 @@ void hkZombieBullSpawn(int a1) {
 
     //float v4[3] = { 875.0, *(float*)(a1 + 0x18), *(float*)(a1 + 0x1C) }; // bull spawns at mX = 920
     //typedef int (*ZombieSetSpawnPosition)(int, float*);
-    //((ZombieSetSpawnPosition)getActualOffset(0x2D874C))(a1, v4);
+    //((ZombieSetSpawnPosition)getActualOffset(0x2C9DEC))(a1, v4); // Edited by jkn
 }
 
 typedef void (*zombieBullThrowRider)(int);

@@ -248,8 +248,8 @@ int hkFun36(int a1, int* a2, int a3, int a4) {
 
 	int v13[3]; // this is probably a vector type
 
-	typedef void (*fun72AF48)(uint, int, int*);
-	((fun72AF48)getActualOffset(0x72AF48))((uint)v13, board, a2);
+	typedef void (*fun7208E8)(uint, int, int*);
+	((fun7208E8)getActualOffset(0x7208E8))((uint)v13, board, a2); // Edited by jkn
 }
 
 //void gridItemPuddlesCanPlantGoHere(int* puddle, int plant, std::vector<int>* reasonsVec) {
@@ -280,8 +280,8 @@ int hkFun36(int a1, int* a2, int a3, int a4) {
 //	// LOGI("Puddle dtor %d %d", mX, mY);
 //	puddles.erase({ mX, mY });
 //
-//	typedef int (*fun411E14)(int*);
-//	int v1 = ((fun411E14)getActualOffset(0x411E14))(puddle);
+//	typedef int (*fun404AD4)(int*);
+//	int v1 = ((fun404AD4)getActualOffset(0x404AD4))(puddle); // Edited by jkn
 //	operator delete((void*)v1);
 //}
 //
@@ -294,12 +294,12 @@ int hkFun36(int a1, int* a2, int a3, int a4) {
 //	puddles.insert({ gridX, gridY });
 //
 //	typedef int (*oSetSpawnLocation)(int, SexyVector3*);
-//	return ((oSetSpawnLocation)getActualOffset(0x2D874C))(puddle, loc);
+//	return ((oSetSpawnLocation)getActualOffset(0x2C9DEC))(puddle, loc); // Edited by jkn
 //}
 //
 //int gridItemPuddleLoadObj(int* puddle, int a2) {
 //	typedef int (*propSheetBaseFun6)(int*, int);
-//	((propSheetBaseFun6)getActualOffset(0x54B7A0))(puddle, a2);
+//	((propSheetBaseFun6)getActualOffset(0x53F220))(puddle, a2); // Edited by jkn
 //
 //	int mX = puddle[0x38], mY = puddle[0x39];
 //	// LOGI("Loaded crater %d %d", mX, mY);
@@ -317,7 +317,7 @@ int hkFun36(int a1, int* a2, int a3, int a4) {
 //	void* res = oGridItemCraterConstruct();
 //
 //	if (!puddlesVftable) {
-//		puddlesVftable = copyVFTable(getActualOffset(0x1BC2030), 67);
+//		puddlesVftable = copyVFTable(getActualOffset(0x1C65DB4), 67); // Edited by jkn
 //
 //		patchVFTable(puddlesVftable, (void*)gridItemPuddlesCanPlantGoHere, 55);
 //		patchVFTable(puddlesVftable, (void*)gridItemPuddleDtor, 3);

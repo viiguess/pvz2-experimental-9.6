@@ -883,7 +883,7 @@ void hookMowerSpawnOnLawn(int mower) {
     SexyVector3 v5 = SexyVector3(168.0, v3 + 22.0, 0.0);
 
     typedef void (*Zombie_Fun_13)(int, SexyVector3*);
-    ((Zombie_Fun_13)getActualOffset(0x2D874C))(mower, &v5);
+    ((Zombie_Fun_13)getActualOffset(0x2C9DEC))(mower, &v5); // Edited by jkn
 
     *(char*)(mower + 0xA0) = 0;
     int v4 = *(int*)(mower + 0x84);
@@ -2680,7 +2680,7 @@ void libPVZ2ExampleMod_main()
     */
     PVZ2HookFunction(0xFB256C, (void*)hkFun80, (void**)&oFun80, "fun80"); // fix mowers
 
-    // PVZ2HookFunction(0x2D874C, (void*)hkZombieSetSpawnPos, (void**)&oZombieSetSpawnPos, "Zombie::SetSpawnPosition"); // just used for debugging
+    // PVZ2HookFunction(0x2C9DEC, (void*)hkZombieSetSpawnPos, (void**)&oZombieSetSpawnPos, "Zombie::SetSpawnPosition"); // just used for debugging  // Edited by jkn
 
     // allow lane 6 spawns
     //PVZ2HookFunction(0x2904C4, (void*)hkGetRowToSpawn, (void**)&oGetRowToSpawn, "fun83"); // implement get row to spawn logic for higher row numbers

@@ -11,7 +11,7 @@ void SkyModuleInitRegion(SkyModule* skyModule) {
 	Sexy::RtClass* regionType = BoardRegionSky::GetRTClass(); 
 
 	typedef BoardRegion* (*createRegion)(Board*, Sexy::RtClass*);
-	BoardRegion* region = ((createRegion)getActualOffset(0x72AAA0))(getBoard(), regionType);
+	BoardRegion* region = ((createRegion)getActualOffset(0x720440))(getBoard(), regionType); // Edited by jkn
 
 	FRect rect = FRect(GRID_TILE_LEFT + 3 * GRID_TILE_WIDTH, -40.0, 976.0, 850.0);
 

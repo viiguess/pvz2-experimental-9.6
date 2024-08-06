@@ -15,7 +15,7 @@ public:
 
 	~GridItemRailAlt() {
 		typedef int (*ogDtor2)(GridItem*);
-		((ogDtor2)getActualOffset(0x411E14))(this);
+		((ogDtor2)getActualOffset(0x404AD4))(this); // Edited by jkn
 	}
 
 	static void* construct() { // this corresponds to A10A40 for ZombieBullVet
@@ -23,12 +23,12 @@ public:
 
 		GridItemRailAlt* v0 = new GridItemRailAlt();
 
-		((gridItemDefaultCtor)getActualOffset(0x411DBC))((int)v0);
+		((gridItemDefaultCtor)getActualOffset(0x404A7C))((int)v0); // Edited by jkn
 
 		v0->storedImg = NULL;
 
 		*(uint*)v0 = (uint)vftable;
-		((int*)v0)[4] = getActualOffset(0x1BC2144);
+		((int*)v0)[4] = getActualOffset(0x1C65ECC); // Edited by jkn
 
 		LOGI("Constructed GridItemRailAlt");
 		return (void*)v0;
@@ -48,7 +48,7 @@ public:
 			// v2 refers to sub_123D950
 
 			typedef int (*GridItemGetClass)();
-			int parentClass = ((GridItemGetClass)getActualOffset(0x364020))();
+			int parentClass = ((GridItemGetClass)getActualOffset(0x356598))(); // Edited by jkn
 			v2(v1, "GridItemRailAlt", parentClass, GridItemRailAlt::construct);
 
 			LOGI("Registering class");
